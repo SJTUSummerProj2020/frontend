@@ -1,7 +1,6 @@
 .classification-card{
     width:100%;
-    margin: 0 8% !important;
-    text-align: center;
+    margin: 0 auto !important;
 }
 
 .classification-card-title{
