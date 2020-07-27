@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c1debe8d-5d70-41dd-90c3-3bb3ada020a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ClassificationCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClassificationCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Goods.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1enOTU1pJ5j0xAKsnN02sfubEJa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="B:/Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1debe8d-5d70-41dd-90c3-3bb3ada020a3" name="Default Changelist" comment="" />
+      <created>1594953897336</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594953897336</updated>
+      <workItem from="1594953900609" duration="1361000" />
+      <workItem from="1595211769131" duration="4874000" />
+      <workItem from="1595291246651" duration="11241000" />
+      <workItem from="1595577761271" duration="2120000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595291365044">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="414" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1595291365044" />
+    <state width="1867" height="343" key="GridCell.Tab.0.bottom" timestamp="1595581824513">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1867" height="343" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1595581824513" />
+    <state width="1867" height="343" key="GridCell.Tab.0.center" timestamp="1595581824513">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1867" height="343" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1595581824513" />
+    <state width="1867" height="343" key="GridCell.Tab.0.left" timestamp="1595581824512">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1867" height="343" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1595581824512" />
+    <state width="1867" height="343" key="GridCell.Tab.0.right" timestamp="1595581824513">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1867" height="343" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1595581824513" />
+    <state x="345" y="22" key="SettingsEditor" timestamp="1595293107026">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="345" y="22" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1595293107026" />
+    <state x="577" y="323" key="com.intellij.ide.util.TipDialog" timestamp="1595291294861">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="577" y="323" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1595291294861" />
+  </component>
+</project>
