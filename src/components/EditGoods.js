@@ -1,8 +1,8 @@
-import React,{useState} from "react";
-import {Form, DatePicker, Input, Col, Row, Select, Button, InputNumber, message} from "antd";
-import {editGoods} from "../services/goodsService";
+/* eslint-disable react/prop-types */
+import React from "react";
+import {Form, Input, Col, Row} from "antd";
 
-export class EditGoods extends React.Component{
+export class EditGoods extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -12,14 +12,14 @@ export class EditGoods extends React.Component{
     }
 
     render() {
-        return(
+        return (
             <Form
                 layout="vertical"
                 hideRequiredMark={true}
                 onFinish={this.onFinish}
                 initialValues={{
-                    ['name']: this.props.name,
-                    ['goodsId']: this.props.goodsId
+                    'name': this.props.name,
+                    'goodsId': this.props.goodsId
                 }}
             >
                 <Row gutter={16}>

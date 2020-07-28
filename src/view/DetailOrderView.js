@@ -1,25 +1,26 @@
+/* eslint-disable no-undef,react/prop-types */
 import React from "react";
 import {Header} from "../components/Header";
 import {DetailOrderCard} from "../components/DetailOrderCard";
-import {checkSession} from "../services/userService";
-import {logout} from "../services/userService";
+import {checkSession, logout} from "../services/userService";
 import {message} from "antd";
 
-export class DetailOrderView extends React.Component{
+export class DetailOrderView extends React.Component {
     constructor(props) {
         super(props);
+        // eslint-disable-next-line react/prop-types
         console.log(this.props.location.state);
-        this.state={loggedIn:false,user:null};
+        this.state = {loggedIn:false, user:null};
     }
     componentDidMount() {
         const callback = (data) => {
-            if(data.status === 0){
+            if (data.status === 0) {
                 this.setState(
                     {
                         loggedIn:true,
                         user:data.data
                     }
-                )
+                );
             }
         };
         checkSession(callback);
@@ -41,7 +42,7 @@ export class DetailOrderView extends React.Component{
     }
 
     render() {
-        return(
+        return (
             <div>
                <Header
                     loggedIn={this.state.loggedIn}

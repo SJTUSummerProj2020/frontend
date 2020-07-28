@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import {ImageCarousel} from "../components/Carousel";
 import {Header} from "../components/Header";
@@ -5,13 +6,12 @@ import "../css/header.css";
 import {ClassificationCard} from "../components/ClassificationCard";
 import {BackTop, message} from "antd";
 import {getPopularGoods} from "../services/goodsService";
-import {checkSession} from "../services/userService";
-import {logout} from "../services/userService";
+import {checkSession, logout} from "../services/userService";
 
-export class CustomerHome extends React.Component{
+export class CustomerHome extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             goodsListAll:[],
             goodsAll:null,
             goodsList0:[],
@@ -30,49 +30,49 @@ export class CustomerHome extends React.Component{
             goods6:null,
             loggedIn:false,
             user:null
-        }
+        };
     }
 
     componentDidMount() {
         const checkSession_callback = (data) => {
-            if(data.status === 0){
+            if (data.status === 0) {
                 this.setState(
                     {
                         loggedIn:true,
                         user:data.data
                     }
-                )
+                );
             }
-        }
+        };
         checkSession(checkSession_callback);
         const data = {number:7};
         const callback = (data) => {
             console.log(data.data);
-            let goodsAll = data.data.itemAll[0];
-            let goods0 = data.data.item0[0];
-            let goods1 = data.data.item1[0];
-            let goods2 = data.data.item2[0];
-            let goods3 = data.data.item3[0];
-            let goods4 = data.data.item4[0];
-            let goods5 = data.data.item5[0];
-            let goods6 = data.data.item6[0];
-            let goodsListAll = [];
-            let goodsList0 = [];
-            let goodsList1 = [];
-            let goodsList2 = [];
-            let goodsList3 = [];
-            let goodsList4 = [];
-            let goodsList5 = [];
-            let goodsList6 = [];
-            for(let i = 1;i < 7;++i){
-                goodsListAll[i-1] = data.data.itemAll[i];
-                goodsList0[i-1] = data.data.item0[i];
-                goodsList1[i-1] = data.data.item1[i];
-                goodsList2[i-1] = data.data.item2[i];
-                goodsList3[i-1] = data.data.item3[i];
-                goodsList4[i-1] = data.data.item4[i];
-                goodsList5[i-1] = data.data.item5[i];
-                goodsList6[i-1] = data.data.item6[i];
+            const goodsAll = data.data.itemAll[0];
+            const goods0 = data.data.item0[0];
+            const goods1 = data.data.item1[0];
+            const goods2 = data.data.item2[0];
+            const goods3 = data.data.item3[0];
+            const goods4 = data.data.item4[0];
+            const goods5 = data.data.item5[0];
+            const goods6 = data.data.item6[0];
+            const goodsListAll = [];
+            const goodsList0 = [];
+            const goodsList1 = [];
+            const goodsList2 = [];
+            const goodsList3 = [];
+            const goodsList4 = [];
+            const goodsList5 = [];
+            const goodsList6 = [];
+            for (let i = 1;i < 7;++i) {
+                goodsListAll[i - 1] = data.data.itemAll[i];
+                goodsList0[i - 1] = data.data.item0[i];
+                goodsList1[i - 1] = data.data.item1[i];
+                goodsList2[i - 1] = data.data.item2[i];
+                goodsList3[i - 1] = data.data.item3[i];
+                goodsList4[i - 1] = data.data.item4[i];
+                goodsList5[i - 1] = data.data.item5[i];
+                goodsList6[i - 1] = data.data.item6[i];
             }
             this.setState(
                 {
@@ -93,9 +93,9 @@ export class CustomerHome extends React.Component{
                     goodsList5:goodsList5,
                     goodsList6:goodsList6
                 }
-            )
-        }
-        getPopularGoods(data,callback);
+            );
+        };
+        getPopularGoods(data, callback);
     }
 
     logout = () => {
@@ -114,7 +114,7 @@ export class CustomerHome extends React.Component{
     }
 
     render() {
-        return(
+        return (
             <div>
                 <Header
                     loggedIn={this.state.loggedIn}

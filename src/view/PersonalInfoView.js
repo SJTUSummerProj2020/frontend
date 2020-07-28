@@ -1,28 +1,28 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import {Header} from "../components/Header";
 import "../css/header.css";
 import {PersonalInfoSidebar} from "../components/PersonalInfo";
 import {Col, message, Row} from "antd";
-import {checkSession} from "../services/userService";
-import {logout} from "../services/userService";
+import {checkSession, logout} from "../services/userService";
 import {history} from "../utils/history";
 
-export class PersonalInfoView extends React.Component{
+export class PersonalInfoView extends React.Component {
     constructor(props) {
         super(props);
-        this.state={key: '3',loggedIn:false,user:null};
+        this.state = {key: '3', loggedIn:false, user:null};
     }
     componentDidMount() {
         const callback = (data) => {
-            if(data.status === 0){
+            if (data.status === 0) {
                 this.setState(
                     {
                         loggedIn:true,
                         user:data.data
                     }
-                )
+                );
             }
-            else{
+            else {
                 message.warning(data.msg);
                 history.push('/login');
             }
@@ -46,7 +46,7 @@ export class PersonalInfoView extends React.Component{
     }
 
     render() {
-        return(
+        return (
             <div>
                 <Header
                     loggedIn={this.state.loggedIn}

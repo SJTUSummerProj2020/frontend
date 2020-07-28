@@ -4,33 +4,33 @@ import {Button, Form, Input, message, Select} from "antd";
 import {LockOutlined, UserOutlined, PhoneOutlined} from "@ant-design/icons";
 import {history} from "../utils/history";
 import {register} from "../services/userService";
-const{Option} = Select;
+const {Option} = Select;
 
-export class RegisterForm extends React.Component{
+export class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    onFinish = values => {
+    onFinish = (values) => {
         console.log('Received values of form: ', values);
-        let username = values.username;
-        let password = values.password;
-        let phone = values.phone;
+        const username = values.username;
+        const password = values.password;
+        const phone = values.phone;
         const data = {
             username: username,
             password: password,
             phone: phone
         };
         const callback = (data) => {
-            if(data.status === 0){
+            if (data.status === 0) {
                 message.success(data.msg);
                history.push('/login');
             }
-            else{
+            else {
                 message.warning(data.msg);
             }
-        }
-        register(data,callback);
+        };
+        register(data, callback);
     }
 
     prefixSelector = (
@@ -41,8 +41,8 @@ export class RegisterForm extends React.Component{
         </Form.Item>
     );
 
-    render(){
-        return(
+    render() {
+        return (
             <Form
                 name="normal_register"
                 className="register-form"

@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {List} from 'antd';
 import {Goods} from "./Goods";
 
-export class GoodsList extends React.Component{
+export class GoodsList extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -12,7 +13,7 @@ export class GoodsList extends React.Component{
                 <List
                     grid={{gutter: 10, column: 3}}
                     dataSource={this.props.goodsList}
-                    renderItem={item => (
+                    renderItem={(item) => (
                         <List.Item>
                             <Goods info={item} />
                         </List.Item>

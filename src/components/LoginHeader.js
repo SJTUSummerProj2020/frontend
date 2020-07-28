@@ -2,12 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import '../css/loginheader.css';
 
-export class LoginHeader extends React.Component{
+export class LoginHeader extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
-        return(
+        return (
             <div className="loginheader">
                 <Link to={{pathname:'/'}}>
                     <div className="loginlogo">

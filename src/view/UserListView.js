@@ -1,34 +1,32 @@
+/* eslint-disable no-undef */
 import React from "react";
 import {Header} from "../components/Header";
-import {Col, Row} from "antd";
+import {Col, Row, message} from "antd";
 import {AdminSideBar} from "../components/AdminSideBar";
 import {UserList} from "../components/UserList";
-import {checkSession} from "../services/userService";
-import {getAllUsers} from "../services/userService";
-import {logout} from "../services/userService";
-import {message} from "antd";
+import {checkSession, getAllUsers, logout} from "../services/userService";
 import {history} from "../utils/history";
 
-export class UserListView extends React.Component{
+export class UserListView extends React.Component {
     constructor(props) {
         super(props);
-        this.state={key: '1',userList:[],loggedIn:false,user:null};
+        this.state = {key: '1', userList:[], loggedIn:false, user:null};
     }
 
     componentDidMount() {
         const callback = (data) => {
-            if(data.status === 0){
+            if (data.status === 0) {
                 this.setState(
                     {
                         loggedIn:true,
                         user:data.data
                     }
-                )
-                if(data.data.userType !== 0){
+                );
+                if (data.data.userType !== 0) {
                     message.warning("对不起，您无权限访问此页面");
                     history.push("/");
                 }
-                else{
+                else {
                     const getUserListData = {};
                     const getUserListCallback = (data) => {
                         console.log(data);
@@ -36,14 +34,14 @@ export class UserListView extends React.Component{
                             {userList:data.data.users}
                         );
                     };
-                    getAllUsers(getUserListData,getUserListCallback);
+                    getAllUsers(getUserListData, getUserListCallback);
                 }
             }
-            else{
+            else {
                 message.warning(data.msg);
                 history.push("login");
             }
-        }
+        };
         checkSession(callback);
     }
 
@@ -63,10 +61,10 @@ export class UserListView extends React.Component{
     }
 
     changeUserStatus = (userId) => {
-        let users = this.state.userList;
-        let length = users.length;
-        for(let i = 0;i < length;++i){
-            if(users[i].userId === userId){
+        const users = this.state.userList;
+        const length = users.length;
+        for (let i = 0;i < length;++i) {
+            if (users[i].userId === userId) {
                 users[i].userType *= (-1);
                 break;
             }
@@ -77,7 +75,7 @@ export class UserListView extends React.Component{
     }
 
     render() {
-        return(
+        return (
             <div>
                 <Header
                     loggedIn={this.state.loggedIn}

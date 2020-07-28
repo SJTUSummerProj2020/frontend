@@ -1,21 +1,22 @@
+/* eslint-disable react/prop-types,no-useless-escape */
 import React from "react";
 import dayjs from "dayjs";
 import moment from "moment";
-import {Form, DatePicker, Input, Col, Row, Select, Button, InputNumber, message} from "antd";
+import {Form, DatePicker, Input, Col, Row, Button, InputNumber, message} from "antd";
 import {editAuction} from "../services/goodsService";
 
-export class EditAuction extends React.Component{
+export class EditAuction extends React.Component {
     constructor(props) {
         super(props);
     }
 
     disabledDate = (date) => {
-        let startTime = new Date(this.props.startTime.substr(0,10));
-        let endTime = new Date(this.props.time.substr(0,10));
-        if(isNaN(endTime.getTime())){
+        const startTime = new Date(this.props.startTime.substr(0, 10));
+        const endTime = new Date(this.props.time.substr(0, 10));
+        if (isNaN(endTime.getTime())) {
             return startTime < date;
         }
-        else{
+        else {
             return endTime < date;
         }
     }
@@ -26,7 +27,7 @@ export class EditAuction extends React.Component{
 
     onFinish = (values) => {
         console.log(values);
-        let startTime = dayjs(values.startTime).format("YYYY-MM-DD HH:mm:ss");
+        const startTime = dayjs(values.startTime).format("YYYY-MM-DD HH:mm:ss");
         console.log(startTime);
         const data = {
             auctionId:values.auctionId,
@@ -38,32 +39,32 @@ export class EditAuction extends React.Component{
             duration:values.duration
         };
         const callback = (data) => {
-            if(data !== null && data.status === 0){
+            if (data !== null && data.status === 0) {
                 message.success(data.msg);
                 this.close();
             }
         };
-        editAuction(data,callback);
+        editAuction(data, callback);
     }
 
     render() {
         console.log(this.props);
-        return(
+        return (
             <Form
                 layout="vertical"
                 hideRequiredMark={true}
                 onFinish={this.onFinish}
                 initialValues={{
-                    ['name']: this.props.name,
-                    ['goodsId']: this.props.goodsId,
-                    ['ticketType']: this.props.ticketType,
-                    ['time']: this.props.time,
-                    ['detailId']: this.props.detailId,
-                    ['auctionId']: this.props.auctionId,
-                    ['startTime']: moment(this.props.startTime),
-                    ['duration']: this.props.duration,
-                    ['startingPrice']: this.props.startingPrice,
-                    ['addingPrice']: this.props.addingPrice
+                    'name': this.props.name,
+                    'goodsId': this.props.goodsId,
+                    'ticketType': this.props.ticketType,
+                    'time': this.props.time,
+                    'detailId': this.props.detailId,
+                    'auctionId': this.props.auctionId,
+                    'startTime': moment(this.props.startTime),
+                    'duration': this.props.duration,
+                    'startingPrice': this.props.startingPrice,
+                    'addingPrice': this.props.addingPrice
                 }}
             >
                 <Row gutter={16}>
@@ -150,8 +151,8 @@ export class EditAuction extends React.Component{
                             rules={[{ required: true, message: '请输入起拍价' }]}
                         >
                             <InputNumber
-                                formatter={value => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                parser={value => value.replace(/\￥\s?|(,*)/g, '')}
+                                formatter={(value) => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                parser={(value) => value.replace(/\￥\s?|(,*)/g, '')}
                                 min={0}
                             />
                         </Form.Item>
@@ -163,8 +164,8 @@ export class EditAuction extends React.Component{
                             rules={[{ required: true, message: '请输入加价幅度' }]}
                         >
                             <InputNumber
-                                formatter={value => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                parser={value => value.replace(/\￥\s?|(,*)/g, '')}
+                                formatter={(value) => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                parser={(value) => value.replace(/\￥\s?|(,*)/g, '')}
                                 min={0}
                             />
                         </Form.Item>

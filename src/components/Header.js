@@ -1,12 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {UserOutlined} from '@ant-design/icons';
 import {Menu, Dropdown} from 'antd';
 import '../css/header.css';
 import {SearchBar} from "./SearchBar";
-import {getGoodsByName} from "../services/goodsService";
 
-export class Header extends React.Component{
+export class Header extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -87,9 +87,8 @@ export class Header extends React.Component{
     );
 
 
-
     render() {
-        return(
+        return (
             <div className="header">
                 <Link to={{pathname:'/'}}>
                     <div className="logo">
@@ -129,7 +128,7 @@ export class Header extends React.Component{
                                                 </div>
                                             </Dropdown>
                                         </li>
-                                    ):
+                                    ) :
                                     (
                                         <li className="headerList">
                                             <Dropdown overlay={this.menu}>
@@ -140,7 +139,7 @@ export class Header extends React.Component{
                                         </li>
                                     )
 
-                            ):
+                            ) :
                             (
                                 <li className="headerList">
                                     <Link to={{pathname:'/login'}}>

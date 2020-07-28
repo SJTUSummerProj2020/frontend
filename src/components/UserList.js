@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types,no-unreachable */
 import React from "react";
 import {List, Avatar, Button, message} from 'antd';
 import {UserOutlined, NumberOutlined, PhoneOutlined, LockOutlined, SafetyCertificateOutlined} from "@ant-design/icons";
 import {changeUserStatusByUserId} from "../services/userService";
 
-export class UserList extends React.Component{
+export class UserList extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -14,15 +15,15 @@ export class UserList extends React.Component{
             message.success(data.msg);
             this.props.changeUserStatus(userId);
         };
-        changeUserStatusByUserId(data,callback);
+        changeUserStatusByUserId(data, callback);
     }
 
     render() {
-        return(
+        return (
             <List
                 itemLayout="horizontal"
                 dataSource={this.props.userList}
-                renderItem={item => (
+                renderItem={(item) => (
                     <List.Item>
                         <List.Item.Meta
                             avatar={<Avatar src={[require("../assets/avatar.jpg")]} />}
@@ -41,11 +42,11 @@ export class UserList extends React.Component{
                                     <div className={"userType"}>
                                         <SafetyCertificateOutlined />
                                         用户类别: {
-                                        (()=>{
+                                        (() => {
                                             switch (item.userType) {
                                                 case -1: return (<span>封禁用户</span>);break;
-                                                case 0: return(<span>管理员</span>);break;
-                                                case 1: return(<span>普通用户</span>);break;
+                                                case 0: return (<span>管理员</span>);break;
+                                                case 1: return (<span>普通用户</span>);break;
                                             }
                                         })()
                                     }
@@ -57,15 +58,15 @@ export class UserList extends React.Component{
                             {
                                 item.userType < 0 ?
                                     (
-                                        <Button onClick={this.changeUserStatus.bind(this,item.userId)}>解禁</Button>
+                                        <Button onClick={this.changeUserStatus.bind(this, item.userId)}>解禁</Button>
                                     ) :
                                     (
                                         item.userType === 0 ?
                                             (
                                                 <div></div>
-                                            ):
+                                            ) :
                                             (
-                                                <Button onClick={this.changeUserStatus.bind(this,item.userId)}>封禁</Button>
+                                                <Button onClick={this.changeUserStatus.bind(this, item.userId)}>封禁</Button>
                                             )
                                     )
                             }
@@ -73,6 +74,6 @@ export class UserList extends React.Component{
                     </List.Item>
                 )}
             />
-        )
+        );
     }
 }

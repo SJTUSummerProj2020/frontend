@@ -1,47 +1,48 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import {Header} from "../components/Header";
 import {getGoodsByName} from "../services/goodsService";
 import {Col, Row, BackTop, message} from 'antd';
 import {SearchList} from "../components/SearchList";
 import '../css/searchlist.css';
-import {checkSession} from "../services/userService";
-import {logout} from "../services/userService";
+import {checkSession, logout} from "../services/userService";
 
-export class SearchView extends React.Component{
+export class SearchView extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             searchResultList:[],
             loggedIn:false,
             user:null
-        }
+        };
     }
 
     componentDidMount() {
         const checkSession_callback = (data) => {
-            if(data.status === 0){
+            if (data.status === 0) {
                 this.setState(
                     {
                         loggedIn:true,
                         user:data.data
                     }
-                )
+                );
             }
         };
         checkSession(checkSession_callback);
         const callback = (data) => {
-            console.log('searchView里的参数',data);
-            this.setState({searchResultList:data.data.goods})
+            console.log('searchView里的参数', data);
+            this.setState({searchResultList:data.data.goods});
         };
         console.log(this.props.location.search.substring(6));
         console.log(decodeURI(this.props.location.search.substring(6)));
         const requestData = {name:decodeURI(this.props.location.search.substring(6))};
-        getGoodsByName(requestData,callback);
+        getGoodsByName(requestData, callback);
     }
 
     logout = () => {
         console.log("Logout");
         const callback = (data) => {
+            // eslint-disable-next-line no-undef
             sessionStorage.removeItem("user");
             this.setState(
                 {
@@ -54,18 +55,20 @@ export class SearchView extends React.Component{
         logout(callback);
     }
 
-    componentWillReceiveProps(nextProps,nextContext){
+    // eslint-disable-next-line no-unused-vars,react/no-deprecated
+    componentWillReceiveProps(nextProps, nextContext) {
+        // eslint-disable-next-line react/prop-types
         const requestData = {name:decodeURI(nextProps.location.search.substring(6))};
         const callback = (data) => {
-            console.log('searchView里的参数',data);
-            this.setState({searchResultList:data.data.goods})
+            console.log('searchView里的参数', data);
+            this.setState({searchResultList:data.data.goods});
         };
-        getGoodsByName(requestData,callback);
+        getGoodsByName(requestData, callback);
     }
 
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <Header
                     loggedIn={this.state.loggedIn}

@@ -1,13 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { List, Button, Menu, Dropdown, Drawer, message} from 'antd';
-import {HomeOutlined, CalendarOutlined, SettingOutlined, UpOutlined} from '@ant-design/icons';
-import"../css/auctionlist.css";
+import {HomeOutlined, CalendarOutlined, SettingOutlined} from '@ant-design/icons';
+import "../css/auctionlist.css";
 import {Link} from 'react-router-dom';
-import {editAuction} from "../services/goodsService";
 import {deleteAuctionByAuctionId} from "../services/goodsService";
 import {EditAuction} from "./EditAuction";
 
-export class AuctionList extends React.Component{
+export class AuctionList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,8 +27,8 @@ export class AuctionList extends React.Component{
             duration:null,
             startingPrice:null,
             addingPrice:null
-        }
-        console.log('List里的拍卖清单',this.props.auctionList);
+        };
+        console.log('List里的拍卖清单', this.props.auctionList);
     }
 
     changePage = (page) => {
@@ -39,11 +39,11 @@ export class AuctionList extends React.Component{
         console.log("Delete auction");
         const data = {auctionId:auctionId};
         const callback = (data) => {
-            if(data !== null && data.status === 0){
+            if (data !== null && data.status === 0) {
                 message.success(data.msg);
             }
         };
-        deleteAuctionByAuctionId(data,callback);
+        deleteAuctionByAuctionId(data, callback);
     }
 
     close = () => {
@@ -52,7 +52,7 @@ export class AuctionList extends React.Component{
         });
     }
 
-    open = (name,goodsId,time,ticketType,detailId,auctionId,startTime,duration,startingPrice,addingPrice) => {
+    open = (name, goodsId, time, ticketType, detailId, auctionId, startTime, duration, startingPrice, addingPrice) => {
         this.setState({
             visible: true,
             name:name,
@@ -68,8 +68,8 @@ export class AuctionList extends React.Component{
         });
     }
 
-    handleClick = (item,e) => {
-        switch(e.key){
+    handleClick = (item, e) => {
+        switch (e.key) {
             case "1":
                 this.deleteAuctionByAuctionId(item.auctionId);break;
             case "2":
@@ -91,22 +91,22 @@ export class AuctionList extends React.Component{
         }
     }
 
-    render(){
-        console.log('当前拍卖物品清单',this.props.auctionList);
-        if(this.props.auctionList[(this.props.currentPage - 1) * 10] === null){
+    render() {
+        console.log('当前拍卖物品清单', this.props.auctionList);
+        if (this.props.auctionList[(this.props.currentPage - 1) * 10] === null) {
             return null;
         }
-        if(this.props.auctionList[0] === null){
+        if (this.props.auctionList[0] === null) {
             return null;
         }
-        return(
+        return (
             <div>
                 <List
                     style={{marginBottom: 10}}
                     itemLayout="vertical"
                     size="large"
                     pagination={{
-                        onChange: page => {
+                        onChange: (page) => {
                             console.log(page);
                             this.changePage(page);
                         },
@@ -118,7 +118,7 @@ export class AuctionList extends React.Component{
                         total: this.props.totalSize
                     }}
                     dataSource={this.props.auctionList}
-                    renderItem={item => (
+                    renderItem={(item) => (
                         <List.Item>
                             {
                                 item === null ?
@@ -140,7 +140,7 @@ export class AuctionList extends React.Component{
                                                         <div className={"detailAuctionName"}>
                                                         <span>
                                                             {
-                                                                item.goods.name.length > 20 ? item.goods.name.substring(0,20) + "..." : item.goods.name
+                                                                item.goods.name.length > 20 ? item.goods.name.substring(0, 20) + "..." : item.goods.name
                                                             }
                                                         </span>
                                                         </div>
@@ -192,11 +192,11 @@ export class AuctionList extends React.Component{
                                                                                 <SettingOutlined />
                                                                             </Button>
                                                                         </Dropdown>
-                                                                    ):
+                                                                    ) :
                                                                     (
                                                                         <div></div>
                                                                     )
-                                                            ):
+                                                            ) :
                                                             (
                                                                 <div></div>
                                                             )

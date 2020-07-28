@@ -1,47 +1,46 @@
+/* eslint-disable no-undef */
 import React from "react";
 import {Header} from "../components/Header";
-import {Col, Row, BackTop} from "antd";
+import {Col, Row, BackTop, message} from "antd";
 import {AdminSideBar} from "../components/AdminSideBar";
-import {checkSession, getAllOrders} from "../services/userService";
-import {message} from "antd";
+import {checkSession, getAllOrders, logout} from "../services/userService";
 import {history} from "../utils/history";
 import {AdminOrderList} from "../components/AdminOrderList";
-import {logout} from "../services/userService";
 
-export class AdminOrderListView extends React.Component{
+export class AdminOrderListView extends React.Component {
     constructor(props) {
         super(props);
-        this.state={key: '2',orderList:[],loggedIn:false,user:null};
+        this.state = {key: '2', orderList:[], loggedIn:false, user:null};
     }
 
     componentDidMount() {
         const callback = (data) => {
-            if(data.status === 0){
+            if (data.status === 0) {
                 this.setState(
                     {
                         loggedIn:true,
                         user:data.data
                     }
                 );
-                if(data.data.userType !== 0){
+                if (data.data.userType !== 0) {
                     message.warning("对不起，你无权限访问此页面");
                     history.push("/");
                 }
-                else{
+                else {
                     const getAllOrdersData = {};
                     const getAllOrdersCallback = (data) => {
                         this.setState(
                             {orderList: data.data.orders}
                         );
                     };
-                    getAllOrders(getAllOrdersData,getAllOrdersCallback);
+                    getAllOrders(getAllOrdersData, getAllOrdersCallback);
                 }
             }
-            else{
+            else {
                 message.warning(data.msg);
                 history.push("login");
             }
-        }
+        };
         checkSession(callback);
     }
 
@@ -61,7 +60,7 @@ export class AdminOrderListView extends React.Component{
     }
 
     render() {
-        return(
+        return (
             <div>
                 <Header
                     loggedIn={this.state.loggedIn}

@@ -1,38 +1,37 @@
 import React from 'react';
-import {List, Pagination} from 'antd';
+import {List} from 'antd';
 import {SearchGoods} from "./SearchGoods";
 import {Link} from "react-router-dom";
 
 
-export class SearchList extends React.Component{
+export class SearchList extends React.Component {
     constructor(props) {
         super(props);
-        this.state={goodsList:[]}
+        this.state = {goodsList:[]};
     }
 
     componentDidMount() {
     }
 
-    render(){
+    render() {
+        // eslint-disable-next-line react/prop-types
         const info = this.props.info;
-        console.log(info)
-        return(
+        console.log(info);
+        return (
             <List
                 grid={{gutter: 10, column: 4}}
                 dataSource={info}
                 pagination={{
-                    onChange: page => {
+                    onChange: (page) => {
                         console.log(page);
                     },
                     pageSize: 24,
                     showSizeChanger: false,
-                    showTotal: total => {
-                        return(
+                    showTotal: (total) => (
                             <span>总共 {total} 个结果</span>
-                        );
-                }
+                        )
                 }}
-                renderItem={item => (
+                renderItem={(item) => (
                     <List.Item>
                         <Link to={{
                             pathname: '/detail',

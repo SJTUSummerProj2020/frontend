@@ -1,16 +1,17 @@
+/* eslint-disable no-undef */
 import React from "react";
-import {Form, Input, Button, Checkbox, message} from 'antd';
+import {Form, Input, Button, message} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import '../css/login.css';
 import {login} from "../services/userService";
 import {history} from "../utils/history";
 import {Link} from 'react-router-dom';
 
-export class LoginForm extends React.Component{
+export class LoginForm extends React.Component {
     constructor(props) {
         super(props);
     }
-    onFinish = values => {
+    onFinish = (values) => {
         console.log('Received values of form: ', values);
         const data = {
             username: values.username,
@@ -18,19 +19,19 @@ export class LoginForm extends React.Component{
         };
         const callback = (data) => {
             console.log(data);
-            if(data.status === 0){
+            if (data.status === 0) {
                 message.success(data.msg);
                 sessionStorage.setItem('user', JSON.stringify(data.data));
                 history.push('/');
             }
-            else if(data.status < 0){
+            else if (data.status < 0) {
                 message.warning(data.msg);
             }
-        }
-        login(data,callback);
+        };
+        login(data, callback);
     }
     render() {
-        return(
+        return (
             <Form
                 name="normal_login"
                 className="login-form"

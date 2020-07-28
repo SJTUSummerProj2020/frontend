@@ -1,11 +1,11 @@
 import {postRequest, postRequestForm} from "../utils/ajax";
 
-export const login = (data,callback) => {
+export const login = (data, callback) => {
     const url = `http://localhost:8080/login`;
     postRequest(url, data, callback);
 };
 
-export const register = (data,callback) => {
+export const register = (data, callback) => {
     const url = `http://localhost:8080/register`;
     postRequest(url, data, callback);
 };
@@ -25,30 +25,30 @@ export const getOrdersByUserId = (data, callback) => {
     postRequest(url, data, callback);
 };
 
-export const addOrder = (data,callback) => {
+export const addOrder = (data, callback) => {
     const url = `http://localhost:8080/addOrder`;
     postRequest(url, data, callback);
 };
 
-export const getAllUsers = (data,callback) => {
+export const getAllUsers = (data, callback) => {
     const url = `http://localhost:8080/getAllUsers`;
     postRequest(url, data, callback);
-}
+};
 
-export const getAllOrders = (data,callback) => {
+export const getAllOrders = (data, callback) => {
     const url = `http://localhost:8080/getAllOrders`;
     postRequest(url, data, callback);
-}
+};
 
-export const changeUserStatusByUserId = (data,callback) => {
+export const changeUserStatusByUserId = (data, callback) => {
     const url = `http://localhost:8080/changeUserStatusByUserId`;
     postRequest(url, data, callback);
-}
+};
 
-export const getRecommendGoods = (data,callback) => {
+export const getRecommendGoods = (data, callback) => {
     const url = `http://localhost:8080/getRecommendGoods`;
     postRequest(url, data, callback);
-}
+};
 
 
 // export const getUsers = (data, callback) => {

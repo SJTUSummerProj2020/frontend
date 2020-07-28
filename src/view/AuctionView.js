@@ -1,17 +1,17 @@
+/* eslint-disable react/prop-types,no-undef */
 import React from "react";
 import {Header} from "../components/Header";
-import{AuctionCard} from "../components/AuctionCard";
-import {Col, message, Row} from "antd";
+import {AuctionCard} from "../components/AuctionCard";
+import {message, Row} from "antd";
 import {getAuctionByAuctionId} from "../services/goodsService";
-import {checkSession} from "../services/userService";
-import {logout} from "../services/userService";
+import {checkSession, logout} from "../services/userService";
 
 let tmpId = null;
 let auctionData = null;
-export class AuctionView extends React.Component{
+export class AuctionView extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             auctionId:null,
             auctionData:null,
             loggedIn:false,
@@ -25,25 +25,25 @@ export class AuctionView extends React.Component{
         tmpId = arr[1].substr(3);
         this.setState({auctionId:tmpId});
 
-        const callback = (data) =>{
+        const callback = (data) => {
             auctionData = data.data;
             this.setState({auctionData:data.data});
-        }
-        if(tmpId === null){
+        };
+        if (tmpId === null) {
             return;
         }
         const requestData = {auctionId:tmpId};
-        getAuctionByAuctionId(requestData,callback);
+        getAuctionByAuctionId(requestData, callback);
 
         const checkSession_callback = (data) => {
             console.log(data);
-            if(data.status === 0){
+            if (data.status === 0) {
                 this.setState(
                     {
                         loggedIn:true,
                         user:data.data
                     }
-                )
+                );
             }
         };
         checkSession(checkSession_callback);
@@ -64,18 +64,20 @@ export class AuctionView extends React.Component{
         logout(callback);
     }
 
-    render(){
-        console.log('auctionData',auctionData);
-        return(
+    render() {
+        console.log('auctionData', auctionData);
+        return (
             <Row align="top" gutter={16}>
                 <Header
                     loggedIn={this.state.loggedIn}
                     user={this.state.user}
                     logout={this.logout}
                 />
-                <AuctionCard info={auctionData}
-                                loggedIn={this.state.loggedIn}
-                                user={this.state.user}/>
+                <AuctionCard
+                    info={auctionData}
+                    loggedIn={this.state.loggedIn}
+                    user={this.state.user}
+                />
             </Row>
         );
     }

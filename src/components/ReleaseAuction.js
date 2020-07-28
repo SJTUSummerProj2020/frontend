@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape,react/prop-types */
 import React from "react";
 import dayjs from 'dayjs';
 import {Form, DatePicker, Input, Col, Row, Select, Button, InputNumber, message} from "antd";
@@ -5,21 +6,24 @@ import {addAuction} from "../services/goodsService";
 
 const {Option} = Select;
 
-export class ReleaseAuction extends React.Component{
+export class ReleaseAuction extends React.Component {
     constructor(props) {
         super(props);
-        this.state={endTime:null}
+        this.state = {endTime:null};
     }
 
 
     close = () => {
+        // eslint-disable-next-line react/prop-types
         this.props.close();
     }
 
-    onFinish = (values) =>{
-        let startTime = dayjs(values.startTime).format("YYYY-MM-DD HH:mm:ss");
+    onFinish = (values) => {
+        const startTime = dayjs(values.startTime).format("YYYY-MM-DD HH:mm:ss");
         const data = {
+            // eslint-disable-next-line react/prop-types
             detailId: this.props.goodsDetails[values.goodsDetails].detailId,
+            // eslint-disable-next-line react/prop-types
             goodsId: this.props.goodsId,
             startingPrice:values.startingPrice,
             addingPrice:values.addingPrice,
@@ -27,29 +31,30 @@ export class ReleaseAuction extends React.Component{
             duration:values.duration
         };
         const callback = (data) => {
-            if(data.status === 0){
+            if (data.status === 0) {
                 message.success(data.msg);
                 this.close();
             }
         };
-        addAuction(data,callback);
+        addAuction(data, callback);
     }
 
     disabledDate = (date) => {
-        let ticketTime = this.state.endTime.substr(0,10);
-        let endTime = new Date(ticketTime);
-        let startTime = new Date(this.props.startTime);
-        if(isNaN(endTime.getTime())){
+        const ticketTime = this.state.endTime.substr(0, 10);
+        const endTime = new Date(ticketTime);
+        // eslint-disable-next-line react/prop-types
+        const startTime = new Date(this.props.startTime);
+        if (isNaN(endTime.getTime())) {
             return startTime < date;
         }
-        else{
+        else {
             return endTime < date;
         }
     }
 
     render() {
-        let items = [];
-        for(let i = 0;i < this.props.goodsDetails.length;++i){
+        const items = [];
+        for (let i = 0;i < this.props.goodsDetails.length;++i) {
             items.push(
                 <Option
                     key={i}
@@ -63,7 +68,7 @@ export class ReleaseAuction extends React.Component{
             name:this.props.name,
             goodsId:this.props.goodsId
         };
-        return(
+        return (
             <Form
                 layout="vertical"
                 hideRequiredMark={true}
@@ -97,7 +102,8 @@ export class ReleaseAuction extends React.Component{
                         >
                             <Select
                                 placeholder="请选择票档"
-                                onChange={(value)=>{
+                                onChange={(value) => {
+                                    // eslint-disable-next-line react/prop-types
                                     this.setState({endTime:this.props.goodsDetails[value].time});
                                     console.log(value);
                                 }}
@@ -137,8 +143,8 @@ export class ReleaseAuction extends React.Component{
                             rules={[{ required: true, message: '请输入起拍价' }]}
                         >
                             <InputNumber
-                                formatter={value => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                parser={value => value.replace(/\￥\s?|(,*)/g, '')}
+                                formatter={(value) => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                parser={(value) => value.replace(/\￥\s?|(,*)/g, '')}
                                 min={0}
                             />
                         </Form.Item>
@@ -150,8 +156,8 @@ export class ReleaseAuction extends React.Component{
                             rules={[{ required: true, message: '请输入加价幅度' }]}
                         >
                             <InputNumber
-                                formatter={value => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                parser={value => value.replace(/\￥\s?|(,*)/g, '')}
+                                formatter={(value) => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                parser={(value) => value.replace(/\￥\s?|(,*)/g, '')}
                                 min={0}
                             />
                         </Form.Item>

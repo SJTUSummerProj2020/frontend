@@ -1,15 +1,15 @@
 import React from "react";
 import {LoginHeader} from "../components/LoginHeader";
-import '../css/register.css'
+import '../css/register.css';
 import {RegisterForm} from "../components/RegisterForm";
 
-export class RegisterView extends React.Component{
+export class RegisterView extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        return(
+        return (
             <div>
                 <LoginHeader/>
                 <div className="register-page">

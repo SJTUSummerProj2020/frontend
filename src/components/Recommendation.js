@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import {Card} from "antd";
 import {RecommendationList} from "./RecommendationList";
 
-export class Recommendation extends React.Component{
+export class Recommendation extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
-        return(
+        return (
             <Card
                 title={<span style={{float:"left"}}>您可能还喜欢</span>}
                 bordered={true}

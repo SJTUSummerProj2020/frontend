@@ -1,27 +1,28 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import {List} from "antd";
 import {Link} from "react-router-dom";
 import {CalendarOutlined, HomeOutlined} from "@ant-design/icons";
-import '../css/adminorderlist.css'
+import '../css/adminorderlist.css';
 
-export class AdminOrderList extends React.Component{
+export class AdminOrderList extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        return(
+        return (
             <List
                 itemLayout="vertical"
                 size="large"
                 pagination={{
-                    onChange: page => {
+                    onChange: (page) => {
                         console.log(page);
                     },
                     pageSize: 20,
                 }}
                 dataSource={this.props.orderList}
-                renderItem={item => (
+                renderItem={(item) => (
                     <List.Item>
                         <div className={"orderGoods"}>
                             <Link to={{
@@ -40,7 +41,7 @@ export class AdminOrderList extends React.Component{
                             <div className={"orderGoodsDescription"}>
                                 <div className={"orderGoodsName"}>
                                     <span>
-                                        {item.goods.name.length > 24 ? item.goods.name.substr(0,24)+'...' : item.goods.name}
+                                        {item.goods.name.length > 24 ? item.goods.name.substr(0, 24) + '...' : item.goods.name}
                                     </span>
                                 </div>
                                 <div className={"orderGoodsPlace"}>
@@ -68,6 +69,6 @@ export class AdminOrderList extends React.Component{
                     </List.Item>
                 )}
             />
-        )
+        );
     }
 }

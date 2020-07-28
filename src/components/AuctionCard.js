@@ -1,54 +1,23 @@
+/* eslint-disable no-unused-vars,react/prop-types,react/no-deprecated */
 import React from "react";
-import { Row, Col,Card,List,InputNumber,Radio,Button,message, Divider,Statistic} from 'antd';
+import { Row, Col, Card, InputNumber, message, Divider, Statistic} from 'antd';
 import {ExclamationCircleFilled} from "@ant-design/icons";
-import {Link} from "react-router-dom";
-import"../css/auctioncard.css";
-import {addOrder, checkSession, getOrdersByUserId} from "../services/userService";
+import "../css/auctioncard.css";
 import {history} from "../utils/history";
-import {getAuctionByAuctionId} from "../services/goodsService";
-import{updateAuction} from "../services/goodsService";
+import {getAuctionByAuctionId, updateAuction} from "../services/goodsService";
 
 const { Countdown } = Statistic;
 
-
-// const ticketsData = {
-//     "address": "场馆：上海市 | 生活实验室小剧场",
-//     "endTime": "2020-07-18",
-//     "goodsDetails": [
-//         {
-//             "detailId": 434,
-//             "goodsId": 123,
-//             "price": 150.0,
-//             "surplus": 0,
-//             "ticketType": "150元",
-//             "time": "2020-07-10 周五 19:30"
-//         },
-//         {
-//             "detailId": 435,
-//             "goodsId": 123,
-//             "price": 180.0,
-//             "surplus": 1,
-//             "ticketType": "180元",
-//             "time": "2020-07-11 周六 20:30"
-//         }
-//     ],
-//     "goodsId": 123,
-//     "goodsType": 0,
-//     "image": "//img.alicdn.com/bao/uploaded/https://img.alicdn.com/imgextra/i2/2251059038/O1CN019OYN192GdSFNbmN3f_!!2251059038.png_q60.jpg_.webp",
-//     "name": "【上海】爆笑脱口秀演出-喜剧联盒国",
-//     "startTime": "2020-07-10",
-//     "website": "https://detail.damai.cn/item.htm?id=619943654186&clicktitle=%E7%88%86%E7%AC%91%E8%84%B1%E5%8F%A3%E7%A7%80%E6%BC%94%E5%87%BA-%E5%96%9C%E5%89%A7%E8%81%94%E7%9B%92%E5%9B%BD"
-// };
 
 let auctionData = null;
 let tmpId;
 let startTrigger = null;
 let triggerFlag = false;
 
-export class AuctionCard extends React.Component{
+export class AuctionCard extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             name:null,
             time:null,
             image:null,
@@ -56,33 +25,32 @@ export class AuctionCard extends React.Component{
             startTime:null,
             duration:null,
             bestOffer:null,
-            currentOffer:null,  //现在出的价格
+            currentOffer:null,  // 现在出的价格
             startingPrice:null,
             addingPrice:null,
             user:null,
             deadline:null,
             auctionData:null,
-            isTheCandidate:false,//判断是不是出的最高价的人
-        }
+            isTheCandidate:false, // 判断是不是出的最高价的人
+        };
 
     }
 
     componentDidMount() {
-        // debugger;
-        if(this.props.info === null)
-            return;
+        if (this.props.info === null)
+            {return;}
         let startTime = this.props.info.startTime;
-        startTime = startTime.replace(/-/g,"/");
-        startTime = startTime.replace(/(\.\d+)?/g,"");
-        console.log('startTime',startTime);
-        let  startDate = new Date(startTime);
-        console.log('startDate',startDate);
-        let startSecond = startDate.getTime();
-        console.log('startSecond',startSecond);
+        startTime = startTime.replace(/-/g, "/");
+        startTime = startTime.replace(/(\.\d+)?/g, "");
+        console.log('startTime', startTime);
+        const  startDate = new Date(startTime);
+        console.log('startDate', startDate);
+        const startSecond = startDate.getTime();
+        console.log('startSecond', startSecond);
         let duration = null;
         duration = this.props.info.duration;
-        let deadline = startSecond + duration*1000;
-        console.log('deadline',deadline);
+        const deadline = startSecond + duration * 1000;
+        console.log('deadline', deadline);
         this.setState({deadline:deadline});
         this.setState({deadline:deadline});
 
@@ -99,66 +67,47 @@ export class AuctionCard extends React.Component{
             addingPrice:this.props.info.addingPrice,
             auctionData:this.props.info,
         });
-        // const callback_checkSession = (data) => {
-        //     if(data.status === 0){
-        //         this.setState(
-        //             {
-        //                 user:data.data
-        //             }
-        //         );
-        //         const callback = (data) => {
-        //             console.log(data);
-        //             this.setState({orderList:data})
-        //         };
-        //         const requestData = {userId:data.data.userId};
-        //         getOrdersByUserId(requestData,callback);
-        //     }
-        //     else{
-        //         message.warning(data.msg);
-        //         history.push('login');
-        //     }
-        // };
-        // checkSession(callback_checkSession);
-    }
-
-    onFinish(){
 
     }
 
-    flushState(){
+    onFinish() {
+
+    }
+
+    flushState() {
         tmpId = this.state.auctionData.auctionId;
-        const callback = (data) =>{
+        const callback = (data) => {
             auctionData = data.data;
             this.setState({auctionData:data.data});
             this.setState({bestOffer:data.data.bestOffer});
-            console.log('当前最高价',data.data.bestOffer);
-            if(data.data.userId === this.props.user){
+            console.log('当前最高价', data.data.bestOffer);
+            if (data.data.userId === this.props.user) {
                 this.setState({isTheCandidate:true});
             }
-            else{
+            else {
                 this.setState({isTheCandidate:false});
             }
-        }
-        if(tmpId === null){
+        };
+        if (tmpId === null) {
             return;
         }
         const requestData = {auctionId:tmpId};
-        getAuctionByAuctionId(requestData,callback);
+        getAuctionByAuctionId(requestData, callback);
         console.log('执行了flush');
     }
 
-    getTimeType(){  //判断时间类型，0是没到拍卖开始时间，1是可以拍卖，2是过了拍卖的时间了
+    getTimeType() {  // 判断时间类型，0是没到拍卖开始时间，1是可以拍卖，2是过了拍卖的时间了
         let startTime = this.props.info.startTime;
-        startTime = startTime.replace(/-/g,"/");
-        startTime = startTime.replace(/(\.\d+)?/g,"");
-        let  startDate = new Date(startTime);
-        let startSecond = startDate.getTime();
-        let nowTime = new Date();
-        let nowSecond = nowTime.getTime();
-        if(nowSecond<startSecond)
-            return 0;
-        if(nowSecond>startSecond&&nowSecond&&nowSecond<startSecond+this.state.duration*1000)
-            return 1;
+        startTime = startTime.replace(/-/g, "/");
+        startTime = startTime.replace(/(\.\d+)?/g, "");
+        const  startDate = new Date(startTime);
+        const startSecond = startDate.getTime();
+        const nowTime = new Date();
+        const nowSecond = nowTime.getTime();
+        if (nowSecond < startSecond)
+            {return 0;}
+        if (nowSecond > startSecond && nowSecond && nowSecond < startSecond + this.state.duration * 1000)
+            {return 1;}
         return 2;
     }
 
@@ -172,55 +121,54 @@ export class AuctionCard extends React.Component{
     }
     beforeunload (e) {
         clearInterval(startTrigger);
-        let confirmationMessage = '关闭页面，停止发送请求';
+        const confirmationMessage = '关闭页面，停止发送请求';
         console.log(confirmationMessage);
         return confirmationMessage;
     }
 
-    giveOffer=(value)=>{
+    giveOffer=(value) => {
         this.setState({currentOffer:value});
     }
 
-    commitAuction=()=>{
+    commitAuction=() => {
         // debugger;
-        if(this.props.loggedIn === true){
-            let auctionId = this.state.auctionData.auctionId;
-            let userId = this.props.user.userId;
-            let currentOffer = this.state.currentOffer;
-            let json={
+        if (this.props.loggedIn === true) {
+            const auctionId = this.state.auctionData.auctionId;
+            const userId = this.props.user.userId;
+            const currentOffer = this.state.currentOffer;
+            const json = {
                 auctionId:auctionId,
                 userId:userId,
                 offer:currentOffer
-            }
-            // debugger;
-            const callback = (data)=>{
-                if(data.status>=0){
+            };
+            const callback = (data) => {
+                if (data.status >= 0) {
                     message.success('恭喜您竞价成功');
                 }
-                else{
+                else {
                     message.error('出价请高于当前价格+加价幅度');
                 }
-            }
-            updateAuction(json,callback);
+            };
+            updateAuction(json, callback);
         }
-        else{
+        else {
             message.error("请登录");
             history.push('/login');
             return;
         }
     }
 
-    isTheCandidate=()=>{
-        if(this.state.isTheCandidate){
-            return <div>您是最高出价人</div>
+    isTheCandidate=() => {
+        if (this.state.isTheCandidate) {
+            return <div>您是最高出价人</div>;
         }
-        else{
-            return<div>您不是最高出价人</div>
+        else {
+            return <div>您不是最高出价人</div>;
         }
     }
 
-    render(){
-        if(this.state.bestOffer === null){
+    render() {
+        if (this.state.bestOffer === null) {
             this.componentDidMount();
             return null;
         }
@@ -230,23 +178,23 @@ export class AuctionCard extends React.Component{
         //     }, 2000);
         //     triggerFlag = true;
         // }
-        if(this.getTimeType()===0){
-            return(<Card hoverable={false} className={"auction-card"}> 拍卖还没开始</Card>);
+        if (this.getTimeType() === 0) {
+            return (<Card hoverable={false} className={"auction-card"}> 拍卖还没开始</Card>);
         }
-        if(this.getTimeType()===2){
-            console.log('持续时间',this.state.duration);
-            return(<Card hoverable={false} className={"auction-card"}>拍卖已结束</Card>)
+        if (this.getTimeType() === 2) {
+            console.log('持续时间', this.state.duration);
+            return (<Card hoverable={false} className={"auction-card"}>拍卖已结束</Card>);
         }
 
-        if(triggerFlag === false){
-            startTrigger = setInterval( ()=>{
+        if (triggerFlag === false) {
+            startTrigger = setInterval(() => {
                 this.flushState();
             }, 1000);
             triggerFlag = true;
         }
 
         // console.log('拍卖详情',this.state);
-        return(
+        return (
             <Card hoverable={false} className={"auction-card"}>
                 <Row>
                     <Col span={8} className={"auction-card-poster"}>
@@ -294,7 +242,7 @@ export class AuctionCard extends React.Component{
                                 出价:
                             </Col>
                             <Col className={"auction-card-choice"}>
-                                <InputNumber defaultValue={this.state.bestOffer+this.state.addingPrice} step={this.state.addingPrice} onChange={this.giveOffer}/>
+                                <InputNumber defaultValue={this.state.bestOffer + this.state.addingPrice} step={this.state.addingPrice} onChange={this.giveOffer}/>
                             </Col>
                             <Col>
                                 {this.isTheCandidate()}{this.state.isTheCandidate}

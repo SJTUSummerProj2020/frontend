@@ -1,15 +1,15 @@
+/* eslint-disable react/prop-types,no-unused-vars */
 import React from "react";
 import {List} from 'antd';
 import {CalendarOutlined, HomeOutlined} from "@ant-design/icons";
 import {getRecommendGoods} from "../services/userService";
 import '../css/recommendationlist.css';
 import {Link} from "react-router-dom";
-import {getGoodsByName} from "../services/goodsService";
 
-export class RecommendationList extends React.Component{
+export class RecommendationList extends React.Component {
     constructor(props) {
         super(props);
-        this.state={goodsList:[]}
+        this.state = {goodsList:[]};
     }
 
     componentDidMount() {
@@ -20,18 +20,18 @@ export class RecommendationList extends React.Component{
                 }
             );
         };
-        if(this.props.loggedIn){
-            const data = {number:10,userId:this.props.user.userId};
-            getRecommendGoods(data,callback);
+        if (this.props.loggedIn) {
+            const data = {number:10, userId:this.props.user.userId};
+            getRecommendGoods(data, callback);
         }
-        else{
+        else {
             const data = {number:10};
-            getRecommendGoods(data,callback);
+            getRecommendGoods(data, callback);
         }
     }
 
-    componentWillReceiveProps(nextProps,nextContext){
-        let loggedIn = nextProps.loggedIn;
+    componentWillReceiveProps(nextProps, nextContext) {
+        const loggedIn = nextProps.loggedIn;
         const callback = (data) => {
             this.setState(
                 {
@@ -39,24 +39,24 @@ export class RecommendationList extends React.Component{
                 }
             );
         };
-        if(loggedIn){
-            let userId = nextProps.user.userId;
-            const data = {number:10,userId:userId};
-            getRecommendGoods(data,callback);
+        if (loggedIn) {
+            const userId = nextProps.user.userId;
+            const data = {number:10, userId:userId};
+            getRecommendGoods(data, callback);
         }
-        else{
+        else {
             const data = {number:10};
-            getRecommendGoods(data,callback);
+            getRecommendGoods(data, callback);
         }
     }
 
     render() {
-        return(
+        return (
             <List
                 itemLayout="vertical"
                 size="small"
                 dataSource={this.state.goodsList}
-                renderItem={item => (
+                renderItem={(item) => (
                     <List.Item>
                         <Link to={{
                             pathname: '/detail',
@@ -72,10 +72,10 @@ export class RecommendationList extends React.Component{
                                 />
                                 <div className={"recommendationDescription"}>
                                     <div className={"recommendationName"}>
-                                        <span>{item.name.length > 12 ? item.name.substr(0,12) + "..." : item.name}</span>
+                                        <span>{item.name.length > 12 ? item.name.substr(0, 12) + "..." : item.name}</span>
                                     </div>
                                     <div className={"recommendationPlace"}>
-                                        <HomeOutlined/>{item.address.length > 18 ? item.address.substr(0,18) + "..." : item.address}
+                                        <HomeOutlined/>{item.address.length > 18 ? item.address.substr(0, 18) + "..." : item.address}
                                     </div>
                                     <div className={"recommendationTime"}>
                                         <CalendarOutlined/>

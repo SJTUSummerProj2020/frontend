@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { Row, Col,Card,Tabs} from 'antd';
+import { Row, Col, Card, Tabs} from 'antd';
 import '../css/detailshowtab.css';
 const { TabPane } = Tabs;
 
@@ -9,13 +10,13 @@ function callback(key) {
 
 let detailInfo = null;
 
-export class DetailShowTab extends React.Component{
+export class DetailShowTab extends React.Component {
     constructor(props) {
         super(props);
         detailInfo = this.props.info.detail;
     }
     render() {
-        return(
+        return (
             <Row align = "top" gutter={16}>
                 <Col className={"detail-show-tab"}>
                     <Tabs defaultActiveKey="1" onChange={callback}>

@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Menu } from 'antd';
 import {Link} from 'react-router-dom';
-export class PersonalInfoSidebar extends React.Component{
+export class PersonalInfoSidebar extends React.Component {
     constructor(props) {
         super(props);
         console.log(this.props);
     }
     render() {
-        return(
+        return (
             <Menu
                 onClick={this.handleClick}
                 style={{ width: 256 }}

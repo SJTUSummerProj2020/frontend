@@ -1,15 +1,16 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Card } from 'antd';
-import "../css/goods.css"
+import "../css/goods.css";
 const { Meta } = Card;
 
-export class SearchGoods extends React.Component{
+export class SearchGoods extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
         const {info} = this.props;
-        return(
+        return (
             <Card
                 hoverable={true}
                 style={{width: 180, marginLeft:0}}
@@ -21,7 +22,7 @@ export class SearchGoods extends React.Component{
                         info.goodsDetails.length === 0 ?
                             (
                                 <span className={"canceled"}>演出取消</span>
-                            ):
+                            ) :
                             (
                                 <span>￥{info.goodsDetails[0].price}起</span>
                             )

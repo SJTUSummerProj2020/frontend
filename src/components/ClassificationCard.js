@@ -1,25 +1,26 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import '../css/classificationcard.css';
-import{Card} from "antd";
+import {Card} from "antd";
 import {Link} from 'react-router-dom';
 import {GoodsList} from "./GoodsList";
 const {Meta} = Card;
 
-export class ClassificationCard extends React.Component{
+export class ClassificationCard extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
-        if(this.props.goods === null){
+        if (this.props.goods === null) {
             return null;
         }
-        return(
+        return (
             <Card
                 title={<span style={{float:"left"}}>{this.props.classification}</span>}
                 bordered={false}
                 className={"classification-card"}
                 extra={
-                    <Link to={{pathname: '/goodsList'}}>
+                    <Link to={{pathname: '/goodsList'}} target="_blank">
                         <span>查看更多</span>
                     </Link>
                 }
@@ -30,6 +31,7 @@ export class ClassificationCard extends React.Component{
                        <Link to={{
                            pathname: '/detail',
                            search: '?id=' + this.props.goods.goodsId}}
+                             target="_blank"
                        >
                            <Card
                                hoverable
@@ -39,10 +41,10 @@ export class ClassificationCard extends React.Component{
                                <Meta
                                    title={this.props.goods.name}
                                    description={
-                                       this.props.goods.goodsDetails.length===0 ?
+                                       this.props.goods.goodsDetails.length === 0 ?
                                            (
                                                <span className={"canceled"}>演出取消</span>
-                                           ):
+                                           ) :
                                            (
                                                <span>￥{this.props.goods.goodsDetails[0].price}起</span>
                                            )
