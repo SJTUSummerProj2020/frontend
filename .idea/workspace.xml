@@ -2,10 +2,83 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1debe8d-5d70-41dd-90c3-3bb3ada020a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/npm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/test/auctionview_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/test/auctionview_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/test/detailpage_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/test/detailpage_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/test/first_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/test/first_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/test/homepage_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/test/homepage_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/test/useradmin_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/integration/test/useradmin_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/plugins/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/support/commands.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/commands.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/support/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminOrderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminOrderList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminSideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminSideBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuctionCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuctionCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuctionList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuctionList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ClassificationCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClassificationCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailGoodsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailGoodsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailOrderCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailOrderCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailRecommend.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailRecommend.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailShowTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailShowTab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditAuction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditAuction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditGoods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditGoods.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GoodsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoodsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderSearchList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderSearchList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Page404.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Page404.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PersonalInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PersonalInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RecommendGoods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RecommendGoods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RecommendList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RecommendList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Recommendation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Recommendation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RecommendationList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RecommendationList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ReleaseAuction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ReleaseAuction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchGoods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchGoods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/goodsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/goodsService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/AdminOrderList.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AdminOrderList.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/AuctionCard.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AuctionCard.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/DetailCard.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/DetailCard.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/DetailShowTab.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/DetailShowTab.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Page404.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Page404.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/BGParticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/BGParticle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ajax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminGoodsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminGoodsView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminOrderListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminOrderListView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AuctionListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AuctionListView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AuctionView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AuctionView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CustomerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CustomerHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DetailListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DetailListView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DetailOrderView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DetailOrderView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DetailView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DetailView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/OrderListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/OrderListView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/OrderSearchView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/OrderSearchView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PersonalInfoView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PersonalInfoView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RegisterView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RegisterView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SearchView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SearchView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/UserListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/UserListView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +86,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1enOTU1pJ5j0xAKsnN02sfubEJa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -21,21 +94,30 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="B:/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/eslintrc.js" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="D:\summer_project\7.30\front\node_modules\eslint" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -61,11 +143,18 @@
       <workItem from="1595211769131" duration="4874000" />
       <workItem from="1595291246651" duration="11241000" />
       <workItem from="1595577761271" duration="2120000" />
+      <workItem from="1595903309531" duration="11523000" />
+      <workItem from="1595984588867" duration="2268000" />
+      <workItem from="1596090322208" duration="3349000" />
+      <workItem from="1596094939772" duration="1338000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -75,25 +164,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="414" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1595291365044" />
-    <state width="1867" height="343" key="GridCell.Tab.0.bottom" timestamp="1595581824513">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="555" y="127" key="FileChooserDialogImpl" timestamp="1596095753948">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="555" y="127" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596095753948" />
+    <state width="1493" height="127" key="GridCell.Tab.0.bottom" timestamp="1596096286692">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="127" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596096286692" />
     <state width="1867" height="343" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1595581824513" />
-    <state width="1867" height="343" key="GridCell.Tab.0.center" timestamp="1595581824513">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1493" height="127" key="GridCell.Tab.0.center" timestamp="1596096286691">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="127" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596096286691" />
     <state width="1867" height="343" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1595581824513" />
-    <state width="1867" height="343" key="GridCell.Tab.0.left" timestamp="1595581824512">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1493" height="127" key="GridCell.Tab.0.left" timestamp="1596096286691">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="127" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596096286691" />
     <state width="1867" height="343" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1595581824512" />
-    <state width="1867" height="343" key="GridCell.Tab.0.right" timestamp="1595581824513">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1493" height="127" key="GridCell.Tab.0.right" timestamp="1596096286692">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="127" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596096286692" />
     <state width="1867" height="343" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1595581824513" />
-    <state x="345" y="22" key="SettingsEditor" timestamp="1595293107026">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="276" y="17" key="SettingsEditor" timestamp="1596095801179">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="276" y="17" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596095801179" />
     <state x="345" y="22" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1595293107026" />
     <state x="577" y="323" key="com.intellij.ide.util.TipDialog" timestamp="1595291294861">
       <screen x="0" y="0" width="1920" height="1080" />
