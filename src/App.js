@@ -1,9 +1,9 @@
 import React from 'react';
-import BasicRoute from "./Router";
+import BasicRoute from './Router';
 
-function App() {
+function App () {
   return (
-      <BasicRoute/>
+    <BasicRoute />
   );
 }
 
