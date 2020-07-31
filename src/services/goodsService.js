@@ -16,7 +16,7 @@ export const getGoodsByGoodsType = (data, callback) => {
 };
 
 export const getGoodsByName = (data, callback) => {
-  const url = 'http://localhost:8080/goods/getGoodsByName';
+  const url = 'http://localhost:8080/goods/search';
   getRequest(url, data, callback);
 };
 

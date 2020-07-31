@@ -21,12 +21,12 @@ export const checkSession = (callback) => {
 };
 
 export const getOrdersByUserId = (data, callback) => {
-  const url = 'http://localhost:8080/user/getOrdersByUserId';
+  const url = 'http://localhost:8080/order/getOrdersByUserId';
   getRequest(url, data, callback);
 };
 
 export const addOrder = (data, callback) => {
-  const url = 'http://localhost:8080/user/addOrder';
+  const url = 'http://localhost:8080/order/addOrder';
   postRequest(url, data, callback);
 };
 
@@ -36,7 +36,7 @@ export const getAllUsers = (data, callback) => {
 };
 
 export const getAllOrders = (data, callback) => {
-  const url = 'http://localhost:8080/user/getAllOrders';
+  const url = 'http://localhost:8080/order/getAllOrders';
   getRequest(url, data, callback);
 };
 
