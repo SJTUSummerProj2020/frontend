@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, List, InputNumber, Radio } from 'antd';
+import { Row, Card} from 'antd';
 import '../css/detailrecommend.css';
 import { RecommendList } from './RecommendList';
 

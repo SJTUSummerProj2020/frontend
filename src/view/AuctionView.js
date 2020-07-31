@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types,no-undef */
 import React from 'react';
-import { Col, message, Row } from 'antd';
+import {message, Row } from 'antd';
 import { Header } from '../components/Header';
 import { AuctionCard } from '../components/AuctionCard';
 import { getAuctionByAuctionId } from '../services/goodsService';

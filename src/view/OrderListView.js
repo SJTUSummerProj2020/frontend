@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { Row, Col, BackTop, message } from 'antd';
 import { Header } from '../components/Header';

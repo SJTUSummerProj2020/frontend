@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';

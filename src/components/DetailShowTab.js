@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Row, Col, Card, Tabs } from 'antd';
 import '../css/detailshowtab.css';

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Card } from 'antd';
 import '../css/goods.css';

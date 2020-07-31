@@ -1,4 +1,4 @@
-import { postRequest, getRequest, deleteRequest, putRequest } from '../utils/ajax';
+import { postRequest, getRequest, deleteRequest} from '../utils/ajax';
 
 export const getAllGoods = (data, callback) => {
   const url = 'http://localhost:8080/goods/getAllGoods';

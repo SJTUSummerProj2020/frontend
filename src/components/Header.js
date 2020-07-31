@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserOutlined } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
 import '../css/header.css';
 import { SearchBar } from './SearchBar';
-import { getGoodsByName } from '../services/goodsService';
 
 export class Header extends React.Component {
   constructor (props) {

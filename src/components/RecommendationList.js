@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types,no-unused-vars */
 import React from 'react';
 import { List } from 'antd';
 import { CalendarOutlined, HomeOutlined } from '@ant-design/icons';
 import { getRecommendGoods } from '../services/userService';
 import '../css/recommendationlist.css';
 import { Link } from 'react-router-dom';
-import { getGoodsByName } from '../services/goodsService';
 
 export class RecommendationList extends React.Component {
   constructor (props) {

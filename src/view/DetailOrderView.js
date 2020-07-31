@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types,no-undef */
 import React from 'react';
 import { message } from 'antd';
 import { Header } from '../components/Header';

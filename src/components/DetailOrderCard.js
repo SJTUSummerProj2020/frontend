@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { Row, Col, Card, List, InputNumber, Radio, Button, message } from 'antd';
+import { Row, Card, Button} from 'antd';
 import { Link } from 'react-router-dom';
 import '../css/detailordercard.css';
 

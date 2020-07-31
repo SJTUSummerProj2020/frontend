@@ -1,6 +1,6 @@
+/* eslint-disable linebreak-style */
 import { shallow } from 'enzyme';
 import React from 'react';
-// import {describe, expect, it} from "@jest/globals";
 import Adapter from 'enzyme-adapter-react-16';
 import * as Enzyme from 'enzyme';
 import Page404 from '../components/Page404';

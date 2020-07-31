@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { ImageCarousel } from '../components/Carousel';
 import { Header } from '../components/Header';

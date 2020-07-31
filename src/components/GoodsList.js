@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { List } from 'antd';
 import { Goods } from './Goods';

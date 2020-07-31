@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { DatePicker, Input, List, Row, Col } from 'antd';
 import '../css/ordersearchlist.css';
@@ -8,7 +9,6 @@ const { RangePicker } = DatePicker;
 
 let flag = false;
 
-// debugger;
 export class OrderSearchList extends React.Component {
   constructor (props) {
     super(props);
@@ -18,7 +18,6 @@ export class OrderSearchList extends React.Component {
       showOrders: null,
       searchValue: ''
     };
-    // debugger;
   }
 
   componentDidMount () {
@@ -28,7 +27,6 @@ export class OrderSearchList extends React.Component {
       searchOrders: this.props.orders,
       searchValue: ''
     });
-    // console.log('lol',this.props);
   }
 
     searchChange = ({ target: { value } }) => {
@@ -135,15 +133,9 @@ export class OrderSearchList extends React.Component {
             </Col>
           </Row>
           <List
-            // dataSource={this.state.showOrders}
             dataSource={this.state.showOrders}
             renderItem={(item) => (
               <List.Item>
-                {/* <List.Item.Meta*/}
-                {/*    title={'order:' + item.orderId}*/}
-                {/*    description={'time:' + item.time}*/}
-                {/* />*/}
-                {/* <OrderTimeDetail info={item.items}/>*/}
                 <Row>
                   <Col className="order-search-orderId">
                     {item.orderId}

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types,no-unreachable */
 import React from 'react';
 import { List, Avatar, Button, message } from 'antd';
 import { UserOutlined, NumberOutlined, PhoneOutlined, LockOutlined, SafetyCertificateOutlined } from '@ant-design/icons';

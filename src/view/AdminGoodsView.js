@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { Col, message, Row } from 'antd';
 import { checkSession, getAllOrders, logout } from '../services/userService';

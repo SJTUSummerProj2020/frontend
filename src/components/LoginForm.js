@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import React from 'react';
-import { Form, Input, Button, Checkbox, message } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import '../css/login.css';
 import { Link } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Button, Input, AutoComplete } from 'antd';
+import {Input} from 'antd';
 import 'antd/dist/antd.min.css';
 import { history } from '../utils/history';
 

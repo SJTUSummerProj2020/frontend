@@ -1,42 +1,13 @@
+/* eslint-disable no-unused-vars,react/prop-types,react/no-deprecated */
 import React from 'react';
-import { Row, Col, Card, List, InputNumber, Radio, Button, message, Divider, Statistic } from 'antd';
+import { Row, Col, Card, InputNumber, message, Divider, Statistic } from 'antd';
 import { ExclamationCircleFilled } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 import '../css/auctioncard.css';
-import { addOrder, checkSession, getOrdersByUserId } from '../services/userService';
 import { history } from '../utils/history';
 import { getAuctionByAuctionId, updateAuction } from '../services/goodsService';
 
 const { Countdown } = Statistic;
 
-// const ticketsData = {
-//     "address": "场馆：上海市 | 生活实验室小剧场",
-//     "endTime": "2020-07-18",
-//     "goodsDetails": [
-//         {
-//             "detailId": 434,
-//             "goodsId": 123,
-//             "price": 150.0,
-//             "surplus": 0,
-//             "ticketType": "150元",
-//             "time": "2020-07-10 周五 19:30"
-//         },
-//         {
-//             "detailId": 435,
-//             "goodsId": 123,
-//             "price": 180.0,
-//             "surplus": 1,
-//             "ticketType": "180元",
-//             "time": "2020-07-11 周六 20:30"
-//         }
-//     ],
-//     "goodsId": 123,
-//     "goodsType": 0,
-//     "image": "//img.alicdn.com/bao/uploaded/https://img.alicdn.com/imgextra/i2/2251059038/O1CN019OYN192GdSFNbmN3f_!!2251059038.png_q60.jpg_.webp",
-//     "name": "【上海】爆笑脱口秀演出-喜剧联盒国",
-//     "startTime": "2020-07-10",
-//     "website": "https://detail.damai.cn/item.htm?id=619943654186&clicktitle=%E7%88%86%E7%AC%91%E8%84%B1%E5%8F%A3%E7%A7%80%E6%BC%94%E5%87%BA-%E5%96%9C%E5%89%A7%E8%81%94%E7%9B%92%E5%9B%BD"
-// };
 
 let auctionData = null;
 let tmpId;
@@ -66,7 +37,6 @@ export class AuctionCard extends React.Component {
   }
 
   componentDidMount () {
-    // debugger;
     if (this.props.info === null) {return;}
     let { startTime } = this.props.info;
     startTime = startTime.replace(/-/g, '/');
@@ -96,26 +66,6 @@ export class AuctionCard extends React.Component {
       addingPrice: this.props.info.addingPrice,
       auctionData: this.props.info
     });
-    // const callback_checkSession = (data) => {
-    //     if(data.status === 0){
-    //         this.setState(
-    //             {
-    //                 user:data.data
-    //             }
-    //         );
-    //         const callback = (data) => {
-    //             console.log(data);
-    //             this.setState({orderList:data})
-    //         };
-    //         const requestData = {userId:data.data.userId};
-    //         getOrdersByUserId(requestData,callback);
-    //     }
-    //     else{
-    //         message.warning(data.msg);
-    //         history.push('login');
-    //     }
-    // };
-    // checkSession(callback_checkSession);
   }
 
   onFinish () {
@@ -178,7 +128,6 @@ export class AuctionCard extends React.Component {
     }
 
     commitAuction=() => {
-      // debugger;
       if (this.props.loggedIn === true) {
         const { auctionId } = this.state.auctionData;
         const { userId } = this.props.user;
@@ -188,7 +137,6 @@ export class AuctionCard extends React.Component {
           userId: userId,
           offer: currentOffer
         };
-        // debugger;
         const callback = (data) => {
           if (data.status >= 0) {
             message.success('恭喜您竞价成功');
@@ -217,12 +165,6 @@ export class AuctionCard extends React.Component {
         this.componentDidMount();
         return null;
       }
-      // if(triggerFlag === false){
-      //     let startTrigger = setInterval(function () {
-      //         console.log('okk');
-      //     }, 2000);
-      //     triggerFlag = true;
-      // }
       if (this.getTimeType() === 0) {
         return (<Card hoverable={false} className="auction-card"> 拍卖还没开始</Card>);
       }
@@ -238,7 +180,6 @@ export class AuctionCard extends React.Component {
         triggerFlag = true;
       }
 
-      // console.log('拍卖详情',this.state);
       return (
         <Card hoverable={false} className="auction-card">
           <Row>

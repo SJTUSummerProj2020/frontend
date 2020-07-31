@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import dayjs from 'dayjs';
 import moment from 'moment';
-import { Form, DatePicker, Input, Col, Row, Select, Button, InputNumber, message } from 'antd';
+import { Form, DatePicker, Input, Col, Row, Button, InputNumber, message } from 'antd';
 import { editAuction } from '../services/goodsService';
 
 export class EditAuction extends React.Component {

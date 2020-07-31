@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types,no-undef,react/no-deprecated */
 import React from 'react';
 import { Col, Row, BackTop, message } from 'antd';
 import { Header } from '../components/Header';

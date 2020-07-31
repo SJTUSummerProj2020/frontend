@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Form, DatePicker, Input, Col, Row, Select, Button, InputNumber, message } from 'antd';
-import { editGoods } from '../services/goodsService';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Form, Input, Col, Row} from 'antd';
 
 export class EditGoods extends React.Component {
   constructor (props) {

@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { List, Pagination } from 'antd';
+import { List} from 'antd';
 import { Link } from 'react-router-dom';
 import { SearchGoods } from './SearchGoods';
 

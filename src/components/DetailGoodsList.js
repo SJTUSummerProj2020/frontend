@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types,react/jsx-no-duplicate-props,react/jsx-key,no-unreachable */
 import React from 'react';
 import { List, PageHeader, Button, Menu, Dropdown, Drawer, message } from 'antd';
-import { HomeOutlined, CalendarOutlined, UpOutlined, SettingOutlined } from '@ant-design/icons';
+import { HomeOutlined, CalendarOutlined, SettingOutlined } from '@ant-design/icons';
 import '../css/detailgoodslist.css';
 import { Link } from 'react-router-dom';
 

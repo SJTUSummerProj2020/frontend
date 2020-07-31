@@ -1,10 +1,11 @@
+/* eslint-disable no-undef,react/prop-types */
 import React from 'react';
 import { Row, Col, Card, InputNumber, Radio, Button, message } from 'antd';
 import '../css/detailcard.css';
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { getGoodsByGoodsId } from '../services/goodsService';
-import { addOrder, checkSession, getOrdersByUserId } from '../services/userService';
+import { addOrder} from '../services/userService';
 import { history } from '../utils/history';
 
 const RadioGroup = Radio.Group;
@@ -29,14 +30,12 @@ export class DetailCard extends React.Component {
   }
 
   componentDidMount () {
-    // debugger;
     const callback = (data) => {
       const userInfoStr = sessionStorage.getItem('user');
-      if (userInfoStr != null) {
+      if (userInfoStr !== null) {
         const userInfo = JSON.parse(userInfoStr);
         this.setState({ user: userInfo.userId });
       }
-      // this.setState({user:data.data.userId});
       this.setState({ goodsData: data.data });
       this.setState({ goodsDetailTime: data.data.goodsDetails[0].time });
       this.setState({ ticketsType: data.data.goodsDetails[0].ticketType });
@@ -53,18 +52,13 @@ export class DetailCard extends React.Component {
   }
 
     onChange1=(e) => {
-      // this.setState({goodsDetailTime:e.target.value});
       this.setState(() => ({ goodsDetailTime: e.target.value }));
       this.getTicketType(this.state.goodsData, e.target.value);
-      // this.setState({goodsDetailTime:e.target.value});
       this.setState(() => ({ goodsDetailTime: e.target.value }));
-      // console.log('场次',this.state.goodsDetailTime);
       this.getSurplus();
     }
 
     onChange2=(e) => {
-      // console.log('票档',e.target.value);
-      // this.setState({ticketsType:e.target.value});
       this.setState(() => ({ ticketsType: e.target.value }));
       const unitValue = this.getUnitPrice(this.state.goodsData, e.target.value);
       this.getTotalPrice(this.state.goodsData, this.state.ticketsNum, unitValue);
@@ -77,7 +71,7 @@ export class DetailCard extends React.Component {
     }
 
     getGoodsDetailTime=(data) => { // 实际调用时参数应该为this.state.goodsData
-      if (data.goodsDetails == null) {return null;}
+      if (data.goodsDetails === null) {return null;}
       const len = data.goodsDetails.length;
       let i = 0;
       const tmpArray = [];
@@ -85,12 +79,11 @@ export class DetailCard extends React.Component {
         if (tmpArray.indexOf(data.goodsDetails[i].time) === -1) {tmpArray.push(data.goodsDetails[i].time);}
       }
 
-      // this.setState({goodsDetailTimeArray:tmpArray});
       this.setState(() => ({ goodsDetailTimeArray: tmpArray }));
     }
 
     getTicketType=(data, another) => {
-      if (data.goodsDetails == null) {return null;}
+      if (data.goodsDetails === null) {return null;}
       let tmp;
       if (another === undefined) {
         tmp = this.state.goodsDetailTime;
@@ -103,15 +96,13 @@ export class DetailCard extends React.Component {
       for (i = 0; i < len; i++) {
         if (this.state.goodsData.goodsDetails[i].time === tmp && tmpArray.indexOf(data.goodsDetails[i].ticketType) === -1) {
           tmpArray.push(data.goodsDetails[i].ticketType);
-          // console.log("找到票档了");
         }
       }
-      // this.setState({ticketTypeArray:tmpArray});
       this.setState(() => ({ ticketTypeArray: tmpArray }));
     }
 
     getUnitPrice=(data, value) => { // value是ticketType
-      if (data.goodsDetails == null) {return null;}
+      if (data.goodsDetails === null) {return null;}
       const len = data.goodsDetails.length;
       let i = 0;
       for (i = 0; i < len; i++) {
@@ -130,7 +121,7 @@ export class DetailCard extends React.Component {
     }
 
     getSurplus=() => {
-      if (this.state.goodsData.goodsDetails == null) {
+      if (this.state.goodsData.goodsDetails === null) {
         return 0;
       }
       const len = this.state.goodsData.goodsDetails.length;
@@ -143,7 +134,6 @@ export class DetailCard extends React.Component {
           this.setState({ surplus: this.state.goodsData.goodsDetails[i].surplus });
           break;
         }
-        // console.log('库存',this.state.goodsData.goodsDetails[i].surplus);
         return this.state.goodsData.goodsDetails[i].surplus;
       }
     }
@@ -194,7 +184,6 @@ export class DetailCard extends React.Component {
     }
 
     buyNow=() => {
-      // debugger;
       if (this.props.user !== null) {
         this.clickSurplus();
         if (this.allMatch()) {
@@ -283,10 +272,6 @@ export class DetailCard extends React.Component {
                               票档
                 </Col>
                 <Col className="detail-card-show-time">
-                  {/* <Radio.Group size="large" onChange={onChange2} defaultValue="a">*/}
-                  {/*    <Radio.Button value="a">1980元</Radio.Button>*/}
-                  {/*    <Radio.Button value="b">880元</Radio.Button>*/}
-                  {/* </Radio.Group>*/}
                   <RadioGroup options={this.state.ticketTypeArray} onChange={this.onChange2} value={this.state.ticketsType} />
                 </Col>
               </Row>
