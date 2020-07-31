@@ -196,7 +196,7 @@ export class DetailCard extends React.Component {
     if (this.props.user !== null) {
       this.clickSurplus()
       if (this.allMatch()) {
-        const userId = this.props.user
+        const userId = this.props.user.userId
         const detailId = this.getDetailId()
         const number = this.state.ticketsNum
         const json = {

@@ -27,7 +27,7 @@ export const getOrdersByUserId = (data, callback) => {
 
 export const addOrder = (data, callback) => {
   const url = 'http://localhost:8080/order/addOrder'
-  postRequest(url, data, callback)
+  putRequest(url, data, callback)
 }
 
 export const getAllUsers = (data, callback) => {
