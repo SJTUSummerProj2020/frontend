@@ -1,16 +1,16 @@
 function parseParams (data) { // json转为URL参数
   try {
-    const tempArr = []
+    const tempArr = [];
     for (const i in data) {
       // var key = encodeURIComponent(i);
-      const value = encodeURIComponent(data[i])
+      const value = encodeURIComponent(data[i]);
       // tempArr.push(key + '=' + value);
-      tempArr.push(value)
+      tempArr.push(value);
     }
-    const urlParamsStr = tempArr.join('/')
-    return urlParamsStr
+    const urlParamsStr = tempArr.join('/');
+    return urlParamsStr;
   } catch (err) {
-    return ''
+    return '';
   }
 }
 
@@ -32,7 +32,7 @@ function parseParams (data) { // json转为URL参数
 //     }
 // }
 
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
 const postRequest = (url, json, callback) => {
   const opts = {
@@ -42,18 +42,18 @@ const postRequest = (url, json, callback) => {
       'Content-Type': 'application/json'
     },
     credentials: 'include'
-  }
+  };
 
   fetch(url, opts)
     .then((response) => response.json())
     .then((data) => {
-      callback(data)
+      callback(data);
     })
     .catch((error) => {
-      console.log(error)
-    })
-}
-export { postRequest }
+      console.log(error);
+    });
+};
+export { postRequest };
 
 const getRequest = (url, json, callback) => {
   const opts = {
@@ -64,7 +64,7 @@ const getRequest = (url, json, callback) => {
     credentials: 'include',
     mode: 'cors',
     cache: 'default'
-  }
+  };
     // console.log("参数",url+"?"+parseParams(json));
 
   fetch(url + '/' + parseParams(json), opts)
@@ -72,15 +72,15 @@ const getRequest = (url, json, callback) => {
     // json=response.json();
       response.json())
     .then((data) => {
-      callback(data)
+      callback(data);
       // console.log("data!!!",data);
     })
     .catch((error) => {
-      console.log(error)
-    })
-}
+      console.log(error);
+    });
+};
 
-export { getRequest }
+export { getRequest };
 
 const deleteRequest = (url, json, callback) => {
   const opts = {
@@ -91,7 +91,7 @@ const deleteRequest = (url, json, callback) => {
     credentials: 'include',
     mode: 'cors',
     cache: 'default'
-  }
+  };
     // console.log("参数",url+"?"+parseParams(json));
 
   fetch(url + '/' + parseParams(json), opts)
@@ -99,13 +99,13 @@ const deleteRequest = (url, json, callback) => {
     // json=response.json();
       response.json())
     .then((data) => {
-      callback(data)
+      callback(data);
     })
     .catch((error) => {
-      console.log(error)
-    })
-}
-export { deleteRequest }
+      console.log(error);
+    });
+};
+export { deleteRequest };
 
 const putRequest = (url, json, callback) => {
   const opts = {
@@ -115,15 +115,15 @@ const putRequest = (url, json, callback) => {
       'Content-Type': 'application/json'
     },
     credentials: 'include'
-  }
+  };
 
   fetch(url, opts)
     .then((response) => response.json())
     .then((data) => {
-      callback(data)
+      callback(data);
     })
     .catch((error) => {
-      console.log(error)
-    })
-}
-export { putRequest }
+      console.log(error);
+    });
+};
+export { putRequest };

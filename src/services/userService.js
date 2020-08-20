@@ -55,11 +55,16 @@ export const getRecommendGoods = (data, callback) => {
 //     postRequest(url, data, callback);
 // };
 //
-// export const editUser = (data,callback) =>
-// {
-//     const url = `http://localhost:8080/editUser`;
-//     postRequest(url, data, callback);
-// };
+export const editUser = (data,callback) => {
+    const url = `http://localhost:8080/user/editUser`;
+    postRequest(url, data, callback);
+};
+
+export const getUserById = (userId,callback) => {
+  const url = `http://localhost:8080/user/getUserById/` + userId;
+  const data = {};
+  getRequest(url, data, callback);
+};
 //
 // export const deleteUser = (data, callback) => {
 //     const url = `http://localhost:8080/deleteUser`;

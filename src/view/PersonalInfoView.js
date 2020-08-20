@@ -1,16 +1,16 @@
-import React from 'react'
-import { Header } from '../components/Header'
-import '../css/header.css'
-import { PersonalInfoSidebar } from '../components/PersonalInfo'
-import { Col, message, Row } from 'antd'
-import { checkSession, logout } from '../services/userService'
+import React from 'react';
+import { Header } from '../components/Header';
+import '../css/header.css';
+import { PersonalInfoSidebar } from '../components/PersonalInfo';
+import { Col, message, Row } from 'antd';
+import { checkSession, logout } from '../services/userService';
 
-import { history } from '../utils/history'
+import { history } from '../utils/history';
 
 export class PersonalInfoView extends React.Component {
   constructor (props) {
-    super(props)
-    this.state = { key: '3', loggedIn: false, user: null }
+    super(props);
+    this.state = { key: '3', loggedIn: false, user: null };
   }
 
   componentDidMount () {
@@ -21,28 +21,28 @@ export class PersonalInfoView extends React.Component {
             loggedIn: true,
             user: data.data
           }
-        )
+        );
       } else {
-        message.warning(data.msg)
-        history.push('/login')
+        message.warning(data.msg);
+        history.push('/login');
       }
-    }
-    checkSession(callback)
+    };
+    checkSession(callback);
   }
 
   logout = () => {
-    console.log('Logout')
+    console.log('Logout');
     const callback = (data) => {
-      sessionStorage.removeItem('user')
+      sessionStorage.removeItem('user');
       this.setState(
         {
           loggedIn: false,
           user: null
         }
-        )
-      message.success(data.msg)
-    }
-    logout(callback)
+        );
+      message.success(data.msg);
+    };
+    logout(callback);
   }
 
   render () {
@@ -62,6 +62,6 @@ export class PersonalInfoView extends React.Component {
             </Col>
           </Row>
         </div>
-    )
+    );
   }
 }

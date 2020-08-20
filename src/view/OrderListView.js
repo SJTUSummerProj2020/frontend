@@ -1,22 +1,22 @@
-import React from 'react'
-import { Row, Col, BackTop, message } from 'antd'
-import { Header } from '../components/Header'
-import '../css/header.css'
-import { PersonalInfoSidebar } from '../components/PersonalInfo'
-import { OrderList } from '../components/OrderList'
-import { checkSession, getOrdersByUserId, logout } from '../services/userService'
+import React from 'react';
+import { Row, Col, BackTop, message } from 'antd';
+import { Header } from '../components/Header';
+import '../css/header.css';
+import { PersonalInfoSidebar } from '../components/PersonalInfo';
+import { OrderList } from '../components/OrderList';
+import { checkSession, getOrdersByUserId, logout } from '../services/userService';
 
-import { history } from '../utils/history'
+import { history } from '../utils/history';
 
 export class OrderListView extends React.Component {
   constructor (props) {
-    super(props)
-    this.state = { key: '1', loggedIn: false, user: null, orderList: [] }
+    super(props);
+    this.state = { key: '1', loggedIn: false, user: null, orderList: [] };
   }
 
   componentDidMount () {
     const callback = (data) => {
-      console.log('OrderListView', data)
+      console.log('OrderListView', data);
       if (data.status === 0) {
         this.setState(
           {
@@ -24,38 +24,38 @@ export class OrderListView extends React.Component {
             user: data.data
           },
           () => {
-            const requestData = { userId: this.state.user.userId }
+            const requestData = { userId: this.state.user.userId };
             const receiveData = (data) => {
               this.setState(
                 {
                   orderList: data.data.order
                 }
-              )
-            }
-            getOrdersByUserId(requestData, receiveData)
+              );
+            };
+            getOrdersByUserId(requestData, receiveData);
           }
-        )
+        );
       } else {
-        message.warning(data.msg)
-        history.push('/login')
+        message.warning(data.msg);
+        history.push('/login');
       }
-    }
-    checkSession(callback)
+    };
+    checkSession(callback);
   }
 
   logout = () => {
-    console.log('Logout')
+    console.log('Logout');
     const callback = (data) => {
-      sessionStorage.removeItem('user')
+      sessionStorage.removeItem('user');
       this.setState(
         {
           loggedIn: false,
           user: null
         }
-        )
-      message.success(data.msg)
-    }
-    logout(callback)
+        );
+      message.success(data.msg);
+    };
+    logout(callback);
   }
 
   render () {
@@ -80,6 +80,6 @@ export class OrderListView extends React.Component {
           </Row>
           <BackTop />
         </div>
-    )
+    );
   }
 }

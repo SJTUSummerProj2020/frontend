@@ -1,22 +1,22 @@
-import React from 'react'
-import dayjs from 'dayjs'
-import { Form, DatePicker, Input, Col, Row, Select, Button, InputNumber, message } from 'antd'
-import { addAuction } from '../services/goodsService'
+import React from 'react';
+import dayjs from 'dayjs';
+import { Form, DatePicker, Input, Col, Row, Select, Button, InputNumber, message } from 'antd';
+import { addAuction } from '../services/goodsService';
 
-const { Option } = Select
+const { Option } = Select;
 
 export class ReleaseAuction extends React.Component {
   constructor (props) {
-    super(props)
-    this.state = { endTime: null }
+    super(props);
+    this.state = { endTime: null };
   }
 
   close = () => {
-    this.props.close()
+    this.props.close();
   }
 
   onFinish = (values) => {
-    const startTime = dayjs(values.startTime).format('YYYY-MM-DD HH:mm:ss')
+    const startTime = dayjs(values.startTime).format('YYYY-MM-DD HH:mm:ss');
     const data = {
       detailId: this.props.goodsDetails[values.goodsDetails].detailId,
       goodsId: this.props.goodsId,
@@ -24,29 +24,29 @@ export class ReleaseAuction extends React.Component {
       addingPrice: values.addingPrice,
       startTime: startTime,
       duration: values.duration
-    }
+    };
     const callback = (data) => {
       if (data.status === 0) {
-        message.success(data.msg)
-        this.close()
+        message.success(data.msg);
+        this.close();
       }
-    }
-    addAuction(data, callback)
+    };
+    addAuction(data, callback);
   }
 
   disabledDate = (date) => {
-    const ticketTime = this.state.endTime.substr(0, 10)
-    const endTime = new Date(ticketTime)
-    const startTime = new Date(this.props.startTime)
+    const ticketTime = this.state.endTime.substr(0, 10);
+    const endTime = new Date(ticketTime);
+    const startTime = new Date(this.props.startTime);
     if (isNaN(endTime.getTime())) {
-      return startTime < date
+      return startTime < date;
     } else {
-      return endTime < date
+      return endTime < date;
     }
   }
 
   render () {
-    const items = []
+    const items = [];
     for (let i = 0; i < this.props.goodsDetails.length; ++i) {
       items.push(
           <Option
@@ -57,13 +57,13 @@ export class ReleaseAuction extends React.Component {
             {' '}
             {this.props.goodsDetails[i].ticketType}
           </Option>
-        )
+        );
     }
 
     const initialValues = {
       name: this.props.name,
       goodsId: this.props.goodsId
-    }
+    };
     return (
         <Form
           layout="vertical"
@@ -99,8 +99,8 @@ export class ReleaseAuction extends React.Component {
                 <Select
                   placeholder="请选择票档"
                   onChange={(value) => {
-                    this.setState({ endTime: this.props.goodsDetails[value].time })
-                    console.log(value)
+                    this.setState({ endTime: this.props.goodsDetails[value].time });
+                    console.log(value);
                   }}
                 >
                   {items}
@@ -168,6 +168,6 @@ export class ReleaseAuction extends React.Component {
             </Col>
           </Row>
         </Form>
-    )
+    );
   }
 }

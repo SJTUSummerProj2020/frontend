@@ -1,18 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { UserOutlined } from '@ant-design/icons'
-import { Menu, Dropdown } from 'antd'
-import '../css/header.css'
-import { SearchBar } from './SearchBar'
-import { getGoodsByName } from '../services/goodsService'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { UserOutlined } from '@ant-design/icons';
+import { Menu, Dropdown } from 'antd';
+import '../css/header.css';
+import { SearchBar } from './SearchBar';
+import { getGoodsByName } from '../services/goodsService';
 
 export class Header extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   logout = () => {
-    this.props.logout()
+    this.props.logout();
   }
 
   menu = (
@@ -23,7 +23,7 @@ export class Header extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to={{ pathname: '/personalInfo' }}>
+          <Link to={{ pathname: '/editInfo' }}>
               账号设置
           </Link>
         </Menu.Item>
@@ -48,7 +48,7 @@ export class Header extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to={{ pathname: '/personalInfo' }}>
+          <Link to={{ pathname: '/editInfo' }}>
               账号设置
           </Link>
         </Menu.Item>
@@ -86,6 +86,9 @@ export class Header extends React.Component {
     );
 
   render () {
+    if(this.props.loggedIn){
+      console.log(this.props.user);
+    }
     return (
         <div className="header">
           <Link to={{ pathname: '/' }}>
@@ -151,6 +154,6 @@ export class Header extends React.Component {
             }
           </div>
         </div>
-    )
+    );
   }
 }

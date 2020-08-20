@@ -1,15 +1,15 @@
-import React from 'react'
-import { ImageCarousel } from '../components/Carousel'
-import { Header } from '../components/Header'
-import '../css/header.css'
-import { ClassificationCard } from '../components/ClassificationCard'
-import { BackTop, message } from 'antd'
-import { getPopularGoods } from '../services/goodsService'
-import { checkSession, logout } from '../services/userService'
+import React from 'react';
+import { ImageCarousel } from '../components/Carousel';
+import { Header } from '../components/Header';
+import '../css/header.css';
+import { ClassificationCard } from '../components/ClassificationCard';
+import { BackTop, message } from 'antd';
+import { getPopularGoods } from '../services/goodsService';
+import { checkSession, logout } from '../services/userService';
 
 export class CustomerHome extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       goodsListAll: [],
       goodsAll: null,
@@ -23,7 +23,7 @@ export class CustomerHome extends React.Component {
       goods3: null,
       loggedIn: false,
       user: null
-    }
+    };
   }
 
   componentDidMount () {
@@ -34,32 +34,32 @@ export class CustomerHome extends React.Component {
             loggedIn: true,
             user: data.data
           }
-        )
+        );
       }
-    }
-    checkSession(checkSession_callback)
-    const data = { number: 7 }
+    };
+    checkSession(checkSession_callback);
+    const data = { number: 7 };
     const callback = (data) => {
       if (data.status !== 0) {
-        return null
+        return null;
       }
       // console.log(data.data);
-      const goodsAll = data.data.itemAll[0]
-      const goods0 = data.data.item0[0]
-      const goods1 = data.data.item1[0]
-      const goods2 = data.data.item2[0]
-      const goods3 = data.data.item3[0]
-      const goodsListAll = []
-      const goodsList0 = []
-      const goodsList1 = []
-      const goodsList2 = []
-      const goodsList3 = []
+      const goodsAll = data.data.itemAll[0];
+      const goods0 = data.data.item0[0];
+      const goods1 = data.data.item1[0];
+      const goods2 = data.data.item2[0];
+      const goods3 = data.data.item3[0];
+      const goodsListAll = [];
+      const goodsList0 = [];
+      const goodsList1 = [];
+      const goodsList2 = [];
+      const goodsList3 = [];
       for (let i = 1; i < 7; ++i) {
-        goodsListAll[i - 1] = data.data.itemAll[i]
-        goodsList0[i - 1] = data.data.item0[i]
-        goodsList1[i - 1] = data.data.item1[i]
-        goodsList2[i - 1] = data.data.item2[i]
-        goodsList3[i - 1] = data.data.item3[i]
+        goodsListAll[i - 1] = data.data.itemAll[i];
+        goodsList0[i - 1] = data.data.item0[i];
+        goodsList1[i - 1] = data.data.item1[i];
+        goodsList2[i - 1] = data.data.item2[i];
+        goodsList3[i - 1] = data.data.item3[i];
       }
       this.setState(
         {
@@ -74,24 +74,24 @@ export class CustomerHome extends React.Component {
           goodsList2: goodsList2,
           goodsList3: goodsList3
         }
-      )
-    }
-    getPopularGoods(data, callback)
+      );
+    };
+    getPopularGoods(data, callback);
   }
 
   logout = () => {
-    console.log('Logout')
+    console.log('Logout');
     const callback = (data) => {
-      sessionStorage.removeItem('user')
+      sessionStorage.removeItem('user');
       this.setState(
         {
           loggedIn: false,
           user: null
         }
-        )
-      message.success(data.msg)
-    }
-    logout(callback)
+        );
+      message.success(data.msg);
+    };
+    logout(callback);
   }
 
   render () {
@@ -132,7 +132,7 @@ export class CustomerHome extends React.Component {
           </div>
           <BackTop />
         </div>
-    )
+    );
   }
 }
 
