@@ -21,6 +21,10 @@ export class CustomerHome extends React.Component {
       goods2: null,
       goodsList3: [],
       goods3: null,
+      goodsList4: [],
+      goods4: null,
+      goodsList5: [],
+      goods5: null,
       loggedIn: false,
       user: null
     };
@@ -43,23 +47,28 @@ export class CustomerHome extends React.Component {
       if (data.status !== 0) {
         return null;
       }
-      // console.log(data.data);
       const goodsAll = data.data.itemAll[0];
       const goods0 = data.data.item0[0];
       const goods1 = data.data.item1[0];
       const goods2 = data.data.item2[0];
       const goods3 = data.data.item3[0];
+      const goods4 = data.data.item4[0];
+      const goods5 = data.data.item5[0];
       const goodsListAll = [];
       const goodsList0 = [];
       const goodsList1 = [];
       const goodsList2 = [];
       const goodsList3 = [];
+      const goodsList4 = [];
+      const goodsList5 = [];
       for (let i = 1; i < 7; ++i) {
         goodsListAll[i - 1] = data.data.itemAll[i];
         goodsList0[i - 1] = data.data.item0[i];
         goodsList1[i - 1] = data.data.item1[i];
         goodsList2[i - 1] = data.data.item2[i];
         goodsList3[i - 1] = data.data.item3[i];
+        goodsList4[i - 1] = data.data.item4[i];
+        goodsList5[i - 1] = data.data.item5[i];
       }
       this.setState(
         {
@@ -68,11 +77,15 @@ export class CustomerHome extends React.Component {
           goods1: goods1,
           goods2: goods2,
           goods3: goods3,
+          goods4: goods4,
+          goods5: goods5,
           goodsListAll: goodsListAll,
           goodsList0: goodsList0,
           goodsList1: goodsList1,
           goodsList2: goodsList2,
-          goodsList3: goodsList3
+          goodsList3: goodsList3,
+          goodsList4: goodsList4,
+          goodsList5: goodsList5
         }
       );
     };
@@ -128,6 +141,18 @@ export class CustomerHome extends React.Component {
               classification="展览休闲"
               goods={this.state.goods3}
               goodsList={this.state.goodsList3}
+            />
+            <ClassificationCard
+              classification={"音乐会"}
+              goods={this.state.goods4}
+              goodsList={this.state.goodsList4}
+              currentType={4}
+            />
+            <ClassificationCard
+              classification={"曲苑杂坛"}
+              goods={this.state.goods5}
+              goodsList={this.state.goodsList5}
+              currentType={5}
             />
           </div>
           <BackTop />

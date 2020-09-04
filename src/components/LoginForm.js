@@ -1,33 +1,33 @@
-import React from 'react'
-import { Form, Input, Button, Checkbox, message } from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import '../css/login.css'
-import { Link } from 'react-router-dom'
-import { login } from '../services/userService'
-import { history } from '../utils/history'
+import React from 'react';
+import { Form, Input, Button, Checkbox, message } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import '../css/login.css';
+import { Link } from 'react-router-dom';
+import { login } from '../services/userService';
+import { history } from '../utils/history';
 
 export class LoginForm extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   onFinish = (values) => {
-    console.log('Received values of form: ', values)
+    console.log('Received values of form: ', values);
     const data = {
       username: values.username,
       password: values.password
-    }
+    };
     const callback = (data) => {
-      console.log(data)
+      console.log(data);
       if (data.status === 0) {
-        message.success(data.msg)
-        sessionStorage.setItem('user', JSON.stringify(data.data))
-        history.push('/')
+        message.success(data.msg);
+        sessionStorage.setItem('user', JSON.stringify(data.data));
+        history.push('/');
       } else if (data.status < 0) {
-        message.warning(data.msg)
+        message.warning(data.msg);
       }
-    }
-    login(data, callback)
+    };
+    login(data, callback);
   }
 
   render () {
@@ -63,6 +63,6 @@ export class LoginForm extends React.Component {
             </Link>
           </Form.Item>
         </Form>
-    )
+    );
   }
 }
