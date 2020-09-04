@@ -1,7 +1,7 @@
 import { postRequest, getRequest,putRequest} from '../utils/ajax';
 
 export const login = (data, callback) => {
-  const url = 'http://localhost:8080/user/login';
+  const url = 'http://localhost:8080/sso/login';
   postRequest(url, data, callback);
 };
 
@@ -11,12 +11,12 @@ export const register = (data, callback) => {
 };
 
 export const logout = (callback) => {
-  const url = 'http://localhost:8080/user/logout';
+  const url = 'http://localhost:8080/sso/logout';
   postRequest(url, {}, callback);
 };
 
 export const checkSession = (callback) => {
-  const url = 'http://localhost:8080/user/checkSession';
+  const url = 'http://localhost:8080/sso/checkSession';
   getRequest(url, {}, callback);
 };
 
