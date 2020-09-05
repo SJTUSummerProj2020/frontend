@@ -68,11 +68,6 @@ export class Header extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to={{ pathname: '/adminGoods' }}>
-              票务管理
-          </Link>
-        </Menu.Item>
-        <Menu.Item>
           <Link to={{ pathname: '/orderSearch' }}>
               订单统计
           </Link>

@@ -1,10 +1,10 @@
-import React from 'react'
-import { Menu } from 'antd'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Menu } from 'antd';
+import { Link } from 'react-router-dom';
 
 export class AdminSideBar extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   render () {
@@ -25,17 +25,12 @@ export class AdminSideBar extends React.Component {
                       系统订单
           </Link>
         </Menu.Item>
-        <Menu.Item key="3">
-          <Link to={{ pathname: '/adminGoods' }}>
-                      票务管理
-          </Link>
-        </Menu.Item>
         <Menu.Item key="4">
           <Link to={{ pathname: '/OrderSearch' }}>
                       分时查询
           </Link>
         </Menu.Item>
       </Menu>
-    )
+    );
   }
 }
