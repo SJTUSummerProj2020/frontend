@@ -73,7 +73,7 @@ export class UserList extends React.Component {
                 {
                   item.userType < 0
                     ? (
-                      <Button onClick={this.changeUserStatus.bind(this, item.userId)}>解禁</Button>
+                      <Button type = "primary"onClick={this.changeUserStatus.bind(this, item.userId)}>解禁</Button>
                     )
                     : (
                       item.userType === 0
