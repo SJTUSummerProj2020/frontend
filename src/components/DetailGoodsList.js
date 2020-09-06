@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types,no-unreachable,react/jsx-no-duplicate-props,react/jsx-key */
 import React from 'react';
 import { List, PageHeader, Button, Menu, Dropdown, Drawer, message } from 'antd';
-import { HomeOutlined, CalendarOutlined, UpOutlined, SettingOutlined } from '@ant-design/icons';
+import { HomeOutlined, CalendarOutlined, SettingOutlined } from '@ant-design/icons';
 import '../css/detailgoodslist.css';
 import { Link } from 'react-router-dom';
 
@@ -49,11 +49,10 @@ export class DetailGoodsList extends React.Component {
 
   deleteGoods = (goodsId) => {
     console.log('Delete');
-    const data = { goodsId: goodsId };
     const callback = (data) => {
-      message.warning(data.msg);
+      message.success(data.msg);
     };
-    deleteGoodsByGoodsId(data, callback);
+    deleteGoodsByGoodsId(goodsId, callback);
   }
 
   handleClick = (goodsId, name, goodsDetails, startTime, endTime, e) => {

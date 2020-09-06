@@ -1,12 +1,13 @@
 /* eslint-disable no-undef,react/prop-types */
 import React from 'react';
-import { Row, Col, Card, InputNumber, Radio, Button, message } from 'antd';
+import { Row, Col, Card, InputNumber, Radio, Button, message, Dropdown, Menu, Drawer } from 'antd';
 import '../css/detailcard.css';
-import { ExclamationCircleFilled } from '@ant-design/icons';
+import { ExclamationCircleFilled, SettingOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { getGoodsByGoodsId } from '../services/goodsService';
+import { deleteGoodsByGoodsId, getGoodsByGoodsId } from '../services/goodsService';
 import { addOrder} from '../services/userService';
 import { history } from '../utils/history';
+import { ReleaseAuction } from './ReleaseAuction';
 
 const RadioGroup = Radio.Group;
 
@@ -25,7 +26,13 @@ export class DetailCard extends React.Component {
       surplus: -1,
       user: null,
       loggedIn: false,
-      orderId: 0
+      orderId: 0,
+      visible: false,
+      goodsId: null,
+      goodsDetails: [],
+      name: null,
+      startTime: null,
+      endTime: null
     };
   }
 
@@ -214,6 +221,44 @@ export class DetailCard extends React.Component {
       }
     }
 
+  handleClick = (goodsId, name, goodsDetails, startTime, endTime, e) => {
+    console.log(e);
+    switch (e.key) {
+      case '1':
+        this.deleteGoods(goodsId); break;
+      case '2':
+        this.releaseAuction(goodsId, name, goodsDetails, startTime, endTime); break;
+      default:
+        break;
+    }
+  }
+
+  deleteGoods = (goodsId) => {
+    console.log('Delete');
+    const callback = (data) => {
+      message.success(data.msg);
+    };
+    deleteGoodsByGoodsId(goodsId, callback);
+  }
+
+  releaseAuction = (goodsId, name, goodsDetails, startTime, endTime) => {
+    console.log('Release auction', goodsId);
+    this.setState({
+      visible: true,
+      goodsId: goodsId,
+      name: name,
+      goodsDetails: goodsDetails,
+      startTime: startTime,
+      endTime: endTime
+    });
+  };
+
+  close = () => {
+    this.setState({
+      visible: false
+    });
+  };
+
     getPath=() => {
       if (this.props.user === null) {
         return 'login';
@@ -307,9 +352,71 @@ export class DetailCard extends React.Component {
                               立即购买
                   </button>
                 </Link>
+                <div className="actionButtons">
+                  {
+                    this.props.loggedIn
+                      ? (
+                        this.props.user.userType === 0
+                          ? (
+                            <Dropdown
+                              placement="topLeft"
+                              overlay={(
+                                <Menu
+                                  onClick={
+                                    this.handleClick.bind(
+                                      this,
+                                      this.state.goodsData.goodsId,
+                                      this.state.goodsData.name,
+                                      this.state.goodsData.goodsDetails,
+                                      this.state.goodsData.startTime,
+                                      this.state.goodsData.endTime
+                                    )
+                                  }
+                                >
+                                  <Menu.Item key="1">
+                                    下架
+                                  </Menu.Item>
+                                  <Menu.Item key="2">
+                                    竞拍
+                                  </Menu.Item>
+                                </Menu>
+                              )}
+                            >
+                              <Button>
+                                <SettingOutlined />
+                              </Button>
+                            </Dropdown>
+                          )
+                          : (
+                            <div />
+                          )
+                      )
+                      : (
+                        <div />
+                      )
+                  }
+                </div>
+
               </Row>
             </Col>
           </Row>
+          <Drawer
+            title="发布竞拍"
+            width={720}
+            onClose={this.close}
+            visible={this.state.visible}
+            bodyStyle={{ paddingBottom: 80 }}
+            destroyOnClose
+          >
+            <ReleaseAuction
+              goodsId={this.state.goodsId}
+              name={this.state.name}
+              goodsDetails={this.state.goodsDetails}
+              startTime={this.state.startTime}
+              endTime={this.state.endTime}
+              close={this.close}
+            />
+          </Drawer>
         </Card>
       );
     }
