@@ -1,20 +1,20 @@
-import React from 'react'
-import { List, Avatar, Button, message } from 'antd'
-import { UserOutlined, NumberOutlined, PhoneOutlined, LockOutlined, SafetyCertificateOutlined } from '@ant-design/icons'
-import { changeUserStatusByUserId } from '../services/userService'
+import React from 'react';
+import { List, Avatar, Button, message } from 'antd';
+import { UserOutlined, NumberOutlined, PhoneOutlined, LockOutlined, SafetyCertificateOutlined } from '@ant-design/icons';
+import { changeUserStatusByUserId } from '../services/userService';
 
 export class UserList extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   changeUserStatus = (userId) => {
-    const data = { userId: userId }
+    const data = { userId: userId };
     const callback = (data) => {
-      message.success(data.msg)
-      this.props.changeUserStatus(userId)
-    }
-    changeUserStatusByUserId(data, callback)
+      message.success(data.msg);
+      this.props.changeUserStatus(userId);
+    };
+    changeUserStatusByUserId(data, callback);
   }
 
   render () {
@@ -42,6 +42,11 @@ export class UserList extends React.Component {
                       {' '}
                                       用户ID:{item.userId}
                     </div>
+                    <div className="nickname">
+                      <UserOutlined />
+                      {' '}
+                                      用户昵称:{item.nickname}
+                    </div>
                     <div className="phone">
                       <PhoneOutlined />
                       {' '}
@@ -59,9 +64,9 @@ export class UserList extends React.Component {
                       {
                         (() => {
                           switch (item.userType) {
-                            case -1: return (<span>封禁用户</span>); break
-                            case 0: return (<span>管理员</span>); break
-                            case 1: return (<span>普通用户</span>); break
+                            case -1: return (<span>封禁用户</span>); break;
+                            case 0: return (<span>管理员</span>); break;
+                            case 1: return (<span>普通用户</span>); break;
                           }
                         })()
                       }
@@ -89,6 +94,6 @@ export class UserList extends React.Component {
             </List.Item>
           )}
         />
-    )
+    );
   }
 }
