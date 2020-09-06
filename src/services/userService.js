@@ -45,8 +45,9 @@ export const changeUserStatusByUserId = (data, callback) => {
   postRequest(url, data, callback);
 };
 
-export const getRecommendGoods = (data, callback) => {
-  const url = 'http://localhost:8080/goods/getRecommendGoods';
+export const getRecommendGoods = (number, callback) => {
+  const url = 'http://localhost:8080/goods/getRecommendGoods/' + number;
+  const data = {};
   getRequest(url, data, callback);
 };
 

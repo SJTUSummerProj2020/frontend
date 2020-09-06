@@ -1,15 +1,15 @@
-import React from 'react'
-import { List } from 'antd'
-import { CalendarOutlined, HomeOutlined } from '@ant-design/icons'
-import { getRecommendGoods } from '../services/userService'
-import '../css/recommendationlist.css'
-import { Link } from 'react-router-dom'
-import { getGoodsByName } from '../services/goodsService'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { List } from 'antd';
+import { CalendarOutlined, HomeOutlined } from '@ant-design/icons';
+import { getRecommendGoods } from '../services/userService';
+import '../css/recommendationlist.css';
+import { Link } from 'react-router-dom';
 
 export class RecommendationList extends React.Component {
   constructor (props) {
-    super(props)
-    this.state = { goodsList: [] }
+    super(props);
+    this.state = { goodsList: [] };
   }
 
   componentDidMount () {
@@ -18,33 +18,28 @@ export class RecommendationList extends React.Component {
         {
           goodsList: data.data.goods
         }
-      )
-    }
+      );
+    };
     if (this.props.loggedIn) {
-      const data = { number: 10, userId: this.props.user.userId }
-      getRecommendGoods(data, callback)
+      getRecommendGoods(10, callback);
     } else {
-      const data = { number: 10 }
-      getRecommendGoods(data, callback)
+      getRecommendGoods(10, callback);
     }
   }
 
   componentWillReceiveProps (nextProps, nextContext) {
-    const { loggedIn } = nextProps
+    const { loggedIn } = nextProps;
     const callback = (data) => {
       this.setState(
         {
           goodsList: data.data.goods
         }
-      )
-    }
+      );
+    };
     if (loggedIn) {
-      const { userId } = nextProps.user
-      const data = { number: 10, userId: userId }
-      getRecommendGoods(data, callback)
+      getRecommendGoods(10, callback);
     } else {
-      const data = { number: 10 }
-      getRecommendGoods(data, callback)
+      getRecommendGoods(10, callback);
     }
   }
 
@@ -105,6 +100,6 @@ export class RecommendationList extends React.Component {
           </List.Item>
         )}
       />
-    )
+    );
   }
 }

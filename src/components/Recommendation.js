@@ -1,10 +1,10 @@
-import React from 'react'
-import { Card } from 'antd'
-import { RecommendationList } from './RecommendationList'
+import React from 'react';
+import { Card } from 'antd';
+import { RecommendationList } from './RecommendationList';
 
 export class Recommendation extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   render () {
@@ -20,6 +20,6 @@ export class Recommendation extends React.Component {
         />
       </Card>
 
-    )
+    );
   }
 }
