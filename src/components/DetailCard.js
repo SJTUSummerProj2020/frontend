@@ -193,6 +193,9 @@ export class DetailCard extends React.Component {
     buyNow=() => {
       if (this.props.user !== null) {
         this.clickSurplus();
+        if(this.state.surplus===0){
+          message.error('该选项无货')
+        }
         if (this.allMatch()) {
           const userId = this.props.user.userId;
           const detailId = this.getDetailId();
@@ -212,7 +215,6 @@ export class DetailCard extends React.Component {
           };
           addOrder(json, callback);
         } else {
-          message.error('该选项无货');
         }
       } else {
         message.error('请登录');
@@ -262,6 +264,9 @@ export class DetailCard extends React.Component {
     getPath=() => {
       if (this.props.user === null) {
         return 'login';
+      }
+      else if(this.state.surplus<=0){
+        return null;
       }
       return 'detailOrder';
     }

@@ -16,6 +16,13 @@ export class DetailOrderCard extends React.Component {
         </Card>
       )
     }
+    else if(this.props.surplus === -1){
+        return(
+            <Card className="detail-order-card">
+                请刷新查看库存
+            </Card>
+        )
+    }
     return (
       <Card className="detail-order-card">
         <Row className="detail-order-stem">
