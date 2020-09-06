@@ -1,15 +1,15 @@
-import React from 'react'
-import { Row, Col, BackTop, message } from 'antd'
-import { Header } from '../components/Header'
-import '../css/header.css'
-import { AuctionList } from '../components/AuctionList'
-import { Recommendation } from '../components/Recommendation'
-import { getAllAuctions } from '../services/goodsService'
-import { checkSession, logout } from '../services/userService'
+import React from 'react';
+import { Row, Col, BackTop, message } from 'antd';
+import { Header } from '../components/Header';
+import '../css/header.css';
+import { AuctionList } from '../components/AuctionList';
+import { Recommendation } from '../components/Recommendation';
+import { getAllAuctions } from '../services/goodsService';
+import { checkSession, logout } from '../services/userService';
 
 export class AuctionListView extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       auctionList: [],
       currentPage: 1,
@@ -18,11 +18,11 @@ export class AuctionListView extends React.Component {
       haveLoaded: [],
       loggedIn: false,
       user: null
-    }
+    };
   }
 
   componentDidMount () {
-    this.init()
+    this.init();
     const callback = (data) => {
       if (data.status === 0) {
         this.setState(
@@ -30,32 +30,28 @@ export class AuctionListView extends React.Component {
             loggedIn: true,
             user: data.data
           }
-        )
+        );
       }
-    }
-    checkSession(callback)
+    };
+    checkSession(callback);
   }
 
   logout = () => {
-    console.log('Logout')
+    console.log('Logout');
     const callback = (data) => {
-      sessionStorage.removeItem('user')
+      sessionStorage.removeItem('user');
       this.setState(
         {
           loggedIn: false,
           user: null
         }
-        )
-      message.success(data.msg)
-    }
-    logout(callback)
+        );
+      message.success(data.msg);
+    };
+    logout(callback);
   }
 
   init = () => {
-    const data = {
-      pageId: 0,
-      pageSize: 100
-    }
     const callback = (data) => {
       if (data.data.auctions.length === 0) {
         this.setState(
@@ -65,21 +61,21 @@ export class AuctionListView extends React.Component {
             currentPage: 1,
             haveLoaded: 0
           }
-          )
+          );
       } else {
-        console.log('data', data)
-        const tmp = [data.data.auctions.length]
-        const dataLength = data.data.auctions.length
-        const totalPage = (dataLength % this.state.pageSize === 0) ? dataLength / this.state.pageSize : dataLength / this.state.pageSize + 1
-        const loaded = []
+        console.log('data', data);
+        const tmp = [data.data.auctions.length];
+        const dataLength = data.data.auctions.length;
+        const totalPage = (dataLength % this.state.pageSize === 0) ? dataLength / this.state.pageSize : dataLength / this.state.pageSize + 1;
+        const loaded = [];
         for (let i = 0; i < totalPage; ++i) {
-          loaded.push(i + 1)
+          loaded.push(i + 1);
         }
         for (let i = 0; i < dataLength; ++i) {
-          tmp[i] = data.data.auctions[i]
+          tmp[i] = data.data.auctions[i];
         }
         for (let i = 100; i < data.data.auctions.length; ++i) {
-          tmp[i] = null
+          tmp[i] = null;
         }
         this.setState(
           {
@@ -89,12 +85,12 @@ export class AuctionListView extends React.Component {
             haveLoaded: loaded
           },
             () => {
-              console.log('Get type', this.state.auctionList)
+              console.log('Get type', this.state.auctionList);
             }
-          )
+          );
       }
-    }
-    getAllAuctions('', callback)
+    };
+    getAllAuctions('', callback);
   }
 
   changePage = (page) => {
@@ -102,20 +98,16 @@ export class AuctionListView extends React.Component {
       left: 0,
       top: 0,
       behavior: 'auto'
-    })
+    });
     if (this.state.haveLoaded.indexOf(page) < 0) {
-      const data = {
-        pageId: page - 1,
-        pageSize: 10
-      }
       const callback = (data) => {
-        const tmp = this.state.auctionList
-        const loaded = this.state.haveLoaded
-        const { length } = data.data.auctions
+        const tmp = this.state.auctionList;
+        const loaded = this.state.haveLoaded;
+        const { length } = data.data.auctions;
         for (let i = 0; i < length; ++i) {
-          tmp[(page - 1) * 10 + i] = data.data.auctions[i]
+          tmp[(page - 1) * 10 + i] = data.data.auctions[i];
         }
-        loaded.push(page)
+        loaded.push(page);
         this.setState(
           {
             auctionList: tmp,
@@ -123,15 +115,15 @@ export class AuctionListView extends React.Component {
             haveLoaded: loaded
           },
             () => {
-              console.log('Change page', this.state.auctionList)
+              console.log('Change page', this.state.auctionList);
             }
-          )
-      }
-      getAllAuctions('', callback)
+          );
+      };
+      getAllAuctions('', callback);
     } else {
       this.setState(
           { currentPage: page }
-        )
+        );
     }
   }
 
@@ -164,6 +156,6 @@ export class AuctionListView extends React.Component {
           </Row>
           <BackTop />
         </div>
-    )
+    );
   }
 }

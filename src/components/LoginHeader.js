@@ -1,11 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import '../css/loginheader.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../css/loginheader.css';
 
 export class LoginHeader extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
   render () {
     return (
@@ -16,6 +13,6 @@ export class LoginHeader extends React.Component {
           </div>
         </Link>
       </div>
-    )
+    );
   }
 }

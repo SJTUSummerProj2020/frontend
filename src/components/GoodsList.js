@@ -1,11 +1,8 @@
-import React from 'react'
-import { List } from 'antd'
-import { Goods } from './Goods'
+import React from 'react';
+import { List } from 'antd';
+import { Goods } from './Goods';
 
 export class GoodsList extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
   render () {
     return (
@@ -20,6 +17,6 @@ export class GoodsList extends React.Component {
           )}
         />
       </div>
-    )
+    );
   }
 }

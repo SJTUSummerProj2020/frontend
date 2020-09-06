@@ -1,32 +1,30 @@
-import React from 'react'
-import dayjs from 'dayjs'
-import moment from 'moment'
-import { Form, DatePicker, Input, Col, Row, Select, Button, InputNumber, message } from 'antd'
-import { editAuction } from '../services/goodsService'
+/* eslint-disable no-useless-escape */
+import React from 'react';
+import dayjs from 'dayjs';
+import moment from 'moment';
+import { Form, DatePicker, Input, Col, Row, Button, InputNumber, message } from 'antd';
+import { editAuction } from '../services/goodsService';
 
 export class EditAuction extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
   disabledDate = (date) => {
-    const startTime = new Date(this.props.startTime.substr(0, 10))
-    const endTime = new Date(this.props.time.substr(0, 10))
+    const startTime = new Date(this.props.startTime.substr(0, 10));
+    const endTime = new Date(this.props.time.substr(0, 10));
     if (isNaN(endTime.getTime())) {
-      return startTime < date
+      return startTime < date;
     } else {
-      return endTime < date
+      return endTime < date;
     }
   }
 
   close = () => {
-    this.props.close()
+    this.props.close();
   }
 
   onFinish = (values) => {
-    console.log(values)
-    const startTime = dayjs(values.startTime).format('YYYY-MM-DD HH:mm:ss')
-    console.log(startTime)
+    console.log(values);
+    const startTime = dayjs(values.startTime).format('YYYY-MM-DD HH:mm:ss');
+    console.log(startTime);
     const data = {
       auctionId: values.auctionId,
       detailId: values.detailId,
@@ -35,18 +33,18 @@ export class EditAuction extends React.Component {
       addingPrice: values.addingPrice,
       startTime: startTime,
       duration: values.duration
-    }
+    };
     const callback = (data) => {
       if (data !== null && data.status === 0) {
-        message.success(data.msg)
-        this.close()
+        message.success(data.msg);
+        this.close();
       }
-    }
-    editAuction(data, callback)
+    };
+    editAuction(data, callback);
   }
 
   render () {
-    console.log(this.props)
+    console.log(this.props);
     return (
         <Form
           layout="vertical"
@@ -179,6 +177,6 @@ export class EditAuction extends React.Component {
             </Col>
           </Row>
         </Form>
-    )
+    );
   }
 }

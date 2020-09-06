@@ -1,12 +1,10 @@
-import React from 'react'
-import { Row, Col, Card, List, InputNumber, Radio, Button, message } from 'antd'
-import { Link } from 'react-router-dom'
-import '../css/detailordercard.css'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Row, Card, Button} from 'antd';
+import { Link } from 'react-router-dom';
+import '../css/detailordercard.css';
 
 export class DetailOrderCard extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
   render () {
     if (this.props.info.surplus === 0) {
@@ -14,14 +12,14 @@ export class DetailOrderCard extends React.Component {
         <Card className="detail-order-card">
                   所选票档无货
         </Card>
-      )
+      );
     }
-    else if(this.props.surplus === -1){
-        return(
+    else if (this.props.surplus === -1) {
+        return (
             <Card className="detail-order-card">
                 请刷新查看库存
             </Card>
-        )
+        );
     }
     return (
       <Card className="detail-order-card">
@@ -56,6 +54,6 @@ export class DetailOrderCard extends React.Component {
           </Link>
         </Row>
       </Card>
-    )
+    );
   }
 }

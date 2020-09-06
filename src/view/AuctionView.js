@@ -1,70 +1,71 @@
-import React from 'react'
-import { Col, message, Row } from 'antd'
-import { Header } from '../components/Header'
-import { AuctionCard } from '../components/AuctionCard'
-import { getAuctionByAuctionId } from '../services/goodsService'
-import { checkSession, logout } from '../services/userService'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { message, Row } from 'antd';
+import { Header } from '../components/Header';
+import { AuctionCard } from '../components/AuctionCard';
+import { getAuctionByAuctionId } from '../services/goodsService';
+import { checkSession, logout } from '../services/userService';
 
-let tmpId = null
-let auctionData = null
+let tmpId = null;
+let auctionData = null;
 export class AuctionView extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       auctionId: null,
       auctionData: null,
       loggedIn: false,
       user: null
-    }
+    };
   }
 
   componentDidMount () {
-    const query = this.props.location.search
-    const arr = query.split('?')
-    tmpId = arr[1].substr(3)
-    this.setState({ auctionId: tmpId })
+    const query = this.props.location.search;
+    const arr = query.split('?');
+    tmpId = arr[1].substr(3);
+    this.setState({ auctionId: tmpId });
 
     const callback = (data) => {
-      auctionData = data.data
-      this.setState({ auctionData: data.data })
-    }
+      auctionData = data.data;
+      this.setState({ auctionData: data.data });
+    };
     if (tmpId === null) {
-      return
+      return;
     }
-    const requestData = { auctionId: tmpId }
-    getAuctionByAuctionId(requestData, callback)
+    const requestData = { auctionId: tmpId };
+    getAuctionByAuctionId(requestData, callback);
 
     const checkSession_callback = (data) => {
-      console.log(data)
+      console.log(data);
       if (data.status === 0) {
         this.setState(
           {
             loggedIn: true,
             user: data.data
           }
-        )
+        );
       }
-    }
-    checkSession(checkSession_callback)
+    };
+    checkSession(checkSession_callback);
   }
 
   logout = () => {
-    console.log('Logout')
+    console.log('Logout');
     const callback = (data) => {
-      sessionStorage.removeItem('user')
+      sessionStorage.removeItem('user');
       this.setState(
         {
           loggedIn: false,
           user: null
         }
-        )
-      message.success(data.msg)
-    }
-    logout(callback)
+        );
+      message.success(data.msg);
+    };
+    logout(callback);
   }
 
   render () {
-    console.log('auctionData', auctionData)
+    console.log('auctionData', auctionData);
     return (
         <Row align="top" gutter={16}>
           <Header
@@ -78,6 +79,6 @@ export class AuctionView extends React.Component {
             user={this.state.user}
           />
         </Row>
-    )
+    );
   }
 }

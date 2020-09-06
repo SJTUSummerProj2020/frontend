@@ -1,21 +1,19 @@
-import React from 'react'
-import { Card } from 'antd'
-import '../css/goods.css'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Card } from 'antd';
+import '../css/goods.css';
 
-const { Meta } = Card
+const { Meta } = Card;
 
 export class SearchGoods extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
   render () {
-    const { info } = this.props
+    const { info } = this.props;
     return (
       <Card
         hoverable
         style={{ width: 180, marginLeft: 0 }}
-        cover={<img alt="image" src={info.image} className="goodsImg" />}
+        cover={<img alt="Goods cover" src={info.image} className="goodsImg" />}
       >
         <Meta
           title={info.name}
@@ -33,6 +31,6 @@ export class SearchGoods extends React.Component {
           }
         />
       </Card>
-    )
+    );
   }
 }

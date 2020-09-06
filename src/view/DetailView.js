@@ -29,6 +29,7 @@ export class DetailView extends React.Component {
     this.setState({ goodsId: OrderData.tmpId });
 
     const callback = (data) => {
+      console.log("DetailView data",data);
       if (data.status === -1) {
         message.warning(data.msg);
       }

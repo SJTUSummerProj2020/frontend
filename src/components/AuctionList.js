@@ -1,15 +1,15 @@
-import React from 'react'
-import { List, Button, Menu, Dropdown, Drawer, message } from 'antd'
-import { HomeOutlined, CalendarOutlined, SettingOutlined, UpOutlined } from '@ant-design/icons'
-import '../css/auctionlist.css'
-import { Link } from 'react-router-dom'
-import { editAuction, deleteAuctionByAuctionId } from '../services/goodsService'
+import React from 'react';
+import { List, Button, Menu, Dropdown, Drawer, message } from 'antd';
+import { HomeOutlined, CalendarOutlined, SettingOutlined} from '@ant-design/icons';
+import '../css/auctionlist.css';
+import { Link } from 'react-router-dom';
+import {deleteAuctionByAuctionId } from '../services/goodsService';
 
-import { EditAuction } from './EditAuction'
+import { EditAuction } from './EditAuction';
 
 export class AuctionList extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       auctionList: [],
       currentPage: 1,
@@ -27,29 +27,29 @@ export class AuctionList extends React.Component {
       duration: null,
       startingPrice: null,
       addingPrice: null
-    }
-    console.log('List里的拍卖清单', this.props.auctionList)
+    };
+    console.log('List里的拍卖清单', this.props.auctionList);
   }
 
   changePage = (page) => {
-    this.props.changePage(page)
+    this.props.changePage(page);
   }
 
   deleteAuctionByAuctionId = (auctionId) => {
-    console.log('Delete auction')
-    const data = { auctionId: auctionId }
+    console.log('Delete auction');
+    const data = { auctionId: auctionId };
     const callback = (data) => {
       if (data !== null && data.status === 0) {
-        message.success(data.msg)
+        message.success(data.msg);
       }
-    }
-    deleteAuctionByAuctionId(data, callback)
+    };
+    deleteAuctionByAuctionId(data, callback);
   }
 
   close = () => {
     this.setState({
       visible: false
-    })
+    });
   }
 
   open = (name, goodsId, time, ticketType, detailId, auctionId, startTime, duration, startingPrice, addingPrice) => {
@@ -65,13 +65,13 @@ export class AuctionList extends React.Component {
       duration: duration,
       startingPrice: startingPrice,
       addingPrice: addingPrice
-    })
+    });
   }
 
   handleClick = (item, e) => {
     switch (e.key) {
       case '1':
-        this.deleteAuctionByAuctionId(item.auctionId); break
+        this.deleteAuctionByAuctionId(item.auctionId); break;
       case '2':
         this.open(
           item.goods.name,
@@ -84,20 +84,20 @@ export class AuctionList extends React.Component {
           item.duration,
           item.startingPrice,
           item.addingPrice
-        )
-        break
+        );
+        break;
       default:
-        break
+        break;
     }
   }
 
   render () {
-    console.log('当前拍卖物品清单', this.props.auctionList)
+    console.log('当前拍卖物品清单', this.props.auctionList);
     if (this.props.auctionList[(this.props.currentPage - 1) * 10] === null) {
-      return null
+      return null;
     }
     if (this.props.auctionList[0] === null) {
-      return null
+      return null;
     }
     return (
         <div>
@@ -107,8 +107,8 @@ export class AuctionList extends React.Component {
             size="large"
             pagination={{
               onChange: (page) => {
-                console.log(page)
-                this.changePage(page)
+                console.log(page);
+                this.changePage(page);
               },
               pageSize: this.props.pageSize,
               defaultCurrent: 1,
@@ -238,6 +238,6 @@ export class AuctionList extends React.Component {
             />
           </Drawer>
         </div>
-    )
+    );
   }
 }

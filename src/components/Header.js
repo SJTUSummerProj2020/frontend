@@ -4,12 +4,8 @@ import { UserOutlined } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
 import '../css/header.css';
 import { SearchBar } from './SearchBar';
-import { getGoodsByName } from '../services/goodsService';
 
 export class Header extends React.Component {
-  constructor (props) {
-    super(props);
-  }
 
   logout = () => {
     this.props.logout();
@@ -76,7 +72,7 @@ export class Header extends React.Component {
     );
 
   render () {
-    if(this.props.loggedIn){
+    if (this.props.loggedIn) {
       console.log(this.props.user);
     }
     return (

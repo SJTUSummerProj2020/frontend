@@ -1,13 +1,10 @@
-import React from 'react'
-import { List } from 'antd'
-import { Link } from 'react-router-dom'
-import { CalendarOutlined, HomeOutlined } from '@ant-design/icons'
-import '../css/adminorderlist.css'
+import React from 'react';
+import { List } from 'antd';
+import { Link } from 'react-router-dom';
+import { CalendarOutlined, HomeOutlined } from '@ant-design/icons';
+import '../css/adminorderlist.css';
 
 export class AdminOrderList extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
   render () {
     return (
@@ -16,7 +13,7 @@ export class AdminOrderList extends React.Component {
         size="large"
         pagination={{
           onChange: (page) => {
-            console.log(page)
+            console.log(page);
           },
           pageSize: 20
         }}
@@ -80,6 +77,6 @@ export class AdminOrderList extends React.Component {
           </List.Item>
         )}
       />
-    )
+    );
   }
 }

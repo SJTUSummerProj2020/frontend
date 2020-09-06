@@ -1,17 +1,14 @@
-import React from 'react'
-import { Card } from 'antd'
-import '../css/goods.css'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Card } from 'antd';
+import '../css/goods.css';
+import { Link } from 'react-router-dom';
 
-const { Meta } = Card
+const { Meta } = Card;
 
 export class Goods extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
   render () {
-    const { info } = this.props
+    const { info } = this.props;
     return (
       <Link to={{
         pathname: '/detail',
@@ -39,6 +36,6 @@ export class Goods extends React.Component {
           />
         </Card>
       </Link>
-    )
+    );
   }
 }

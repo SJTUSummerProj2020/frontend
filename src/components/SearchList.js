@@ -1,27 +1,28 @@
-import React from 'react'
-import { List, Pagination } from 'antd'
-import { Link } from 'react-router-dom'
-import { SearchGoods } from './SearchGoods'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { List } from 'antd';
+import { Link } from 'react-router-dom';
+import { SearchGoods } from './SearchGoods';
 
 export class SearchList extends React.Component {
   constructor (props) {
-    super(props)
-    this.state = { goodsList: [] }
+    super(props);
+    this.state = { goodsList: [] };
   }
 
   componentDidMount () {
   }
 
   render () {
-    const { info } = this.props
-    console.log(info)
+    const { info } = this.props;
+    console.log(info);
     return (
       <List
         grid={{ gutter: 10, column: 4 }}
         dataSource={info}
         pagination={{
           onChange: (page) => {
-            console.log(page)
+            console.log(page);
           },
           pageSize: 24,
           showSizeChanger: false,
@@ -46,6 +47,6 @@ export class SearchList extends React.Component {
           </List.Item>
         )}
       />
-    )
+    );
   }
 }

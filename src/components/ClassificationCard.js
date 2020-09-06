@@ -1,19 +1,17 @@
-import React from 'react'
-import '../css/classificationcard.css'
-import { Card } from 'antd'
-import { Link } from 'react-router-dom'
-import { GoodsList } from './GoodsList'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import '../css/classificationcard.css';
+import { Card } from 'antd';
+import { Link } from 'react-router-dom';
+import { GoodsList } from './GoodsList';
 
-const { Meta } = Card
+const { Meta } = Card;
 
 export class ClassificationCard extends React.Component {
-  constructor (props) {
-    super(props)
-  }
 
   render () {
     if (this.props.goods === null) {
-      return null
+      return null;
     }
     return (
       <Card
@@ -61,6 +59,6 @@ export class ClassificationCard extends React.Component {
           </div>
         </div>
       </Card>
-    )
+    );
   }
 }
