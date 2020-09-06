@@ -36,6 +36,7 @@ export class EditInfo extends React.Component {
     }
     const initialValues = {
       username: this.props.userInfo.username,
+      nickname: this.props.userInfo.nickname,
       userId: this.props.userInfo.userId,
       userType: this.props.userInfo.userType === 0 ? "管理员" : "普通用户",
       password: this.props.userInfo.password,
@@ -55,6 +56,16 @@ export class EditInfo extends React.Component {
               label="用户名"
             >
               <Input placeholder="用户名" />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row gutter={16}>
+          <Col span={12}>
+            <Form.Item
+              name="nickname"
+              label="昵称"
+            >
+              <Input placeholder="昵称" />
             </Form.Item>
           </Col>
         </Row>

@@ -1,36 +1,38 @@
-import React from 'react'
-import '../css/register.css'
-import { Button, Form, Input, message, Select } from 'antd'
-import { LockOutlined, UserOutlined, PhoneOutlined } from '@ant-design/icons'
-import { history } from '../utils/history'
-import { register } from '../services/userService'
+import React from 'react';
+import '../css/register.css';
+import { Button, Form, Input, message, Select } from 'antd';
+import { LockOutlined, UserOutlined, PhoneOutlined } from '@ant-design/icons';
+import { history } from '../utils/history';
+import { register } from '../services/userService';
 
-const { Option } = Select
+const { Option } = Select;
 
 export class RegisterForm extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   onFinish = (values) => {
-    console.log('Received values of form: ', values)
-    const { username } = values
-    const { password } = values
-    const { phone } = values
+    console.log('Received values of form: ', values);
+    const { username } = values;
+    const {nickname} = values;
+    const { password } = values;
+    const { phone } = values;
     const data = {
       username: username,
+      nickname: nickname,
       password: password,
       phone: phone
-    }
+    };
     const callback = (data) => {
       if (data.status === 0) {
-        message.success(data.msg)
-        history.push('/login')
+        message.success(data.msg);
+        history.push('/login');
       } else {
-        message.warning(data.msg)
+        message.warning(data.msg);
       }
-    }
-    register(data, callback)
+    };
+    register(data, callback);
   }
 
   prefixSelector = (
@@ -56,6 +58,12 @@ export class RegisterForm extends React.Component {
             <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
           </Form.Item>
           <Form.Item
+            name="nickname"
+            rules={[{ required: true, message: '请输入您的昵称' }]}
+          >
+            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="昵称" />
+          </Form.Item>
+          <Form.Item
             name="password"
             rules={[{ required: true, message: '请输入您的密码' }]}
           >
@@ -77,9 +85,9 @@ export class RegisterForm extends React.Component {
               ({ getFieldValue }) => ({
                 validator (rule, value) {
                   if (!value || getFieldValue('password') === value) {
-                    return Promise.resolve()
+                    return Promise.resolve();
                   }
-                  return Promise.reject('两次输入的密码不一致')
+                  return Promise.reject('两次输入的密码不一致');
                 }
               })
             ]}
@@ -107,6 +115,6 @@ export class RegisterForm extends React.Component {
             </Button>
           </Form.Item>
         </Form>
-    )
+    );
   }
 }
