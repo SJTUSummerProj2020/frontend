@@ -43,18 +43,13 @@ export class Header extends React.Component {
   adminMenu = (
       <Menu>
         <Menu.Item>
-          <Link to={{ pathname: '/personalInfo' }}>
-              个人信息
+          <Link to={{ pathname: '/orderList' }}>
+              订单管理
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link to={{ pathname: '/editInfo' }}>
-              账号设置
-          </Link>
-        </Menu.Item>
-        <Menu.Item>
-          <Link to={{ pathname: '/orderList' }}>
-              查看订单
+            账号设置
           </Link>
         </Menu.Item>
         <Menu.Item>

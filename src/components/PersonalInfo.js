@@ -26,11 +26,6 @@ export class PersonalInfoSidebar extends React.Component {
             账号设置
           </Link>
         </Menu.Item>
-        <Menu.Item key="3">
-          <Link to={{ pathname: '/personalInfo' }}>
-            个人信息
-          </Link>
-        </Menu.Item>
       </Menu>
     );
   }
