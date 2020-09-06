@@ -1,72 +1,77 @@
-import React from 'react'
-import { Row, Col, message, BackTop } from 'antd'
-import { Header } from '../components/Header'
-import { DetailCard } from '../components/DetailCard'
-import { DetailShowTab } from '../components/DetailShowTab'
-import { Recommendation } from '../components/Recommendation'
-import { getGoodsByGoodsId } from '../services/goodsService'
-import { checkSession, logout } from '../services/userService'
+import React from 'react';
+import { Row, Col, message, BackTop, Empty } from 'antd';
+import { Header } from '../components/Header';
+import { DetailCard } from '../components/DetailCard';
+import { DetailShowTab } from '../components/DetailShowTab';
+import { Recommendation } from '../components/Recommendation';
+import { getGoodsByGoodsId } from '../services/goodsService';
+import { checkSession, logout } from '../services/userService';
 
-import '../css/detailview.css'
+import '../css/detailview.css';
 
-let goodsData = null
-const OrderData = { tmpId: null, userId: null }
+let goodsData = null;
+const OrderData = { tmpId: null, userId: null };
 export class DetailView extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       goodsId: null,
       goodsData: null,
       loggedIn: false,
       user: null
-    }
+    };
   }
 
   componentDidMount () {
-    const query = this.props.location.search
-    const arr = query.split('?')
-    OrderData.tmpId = arr[1].substr(3)
-    this.setState({ goodsId: OrderData.tmpId })
+    const query = this.props.location.search;
+    const arr = query.split('?');
+    OrderData.tmpId = arr[1].substr(3);
+    this.setState({ goodsId: OrderData.tmpId });
 
     const callback = (data) => {
-      goodsData = data.data
-      this.setState({ goodsData: data.data })
-    }
-    const requestData = { goodsId: OrderData.tmpId }
-    getGoodsByGoodsId(requestData, callback)
+      if (data.status === -1) {
+        message.warning(data.msg);
+      }
+      else {
+        goodsData = data.data;
+        this.setState({ goodsData: data.data });
+      }
+    };
+    const requestData = { goodsId: OrderData.tmpId };
+    getGoodsByGoodsId(requestData, callback);
     const checkSession_callback = (data) => {
-      console.log(data)
+      console.log(data);
       if (data.status === 0) {
         this.setState(
           {
             loggedIn: true,
             user: data.data
           }
-        )
+        );
       }
-    }
-    checkSession(checkSession_callback)
+    };
+    checkSession(checkSession_callback);
   }
 
   logout = () => {
-    console.log('Logout')
+    console.log('Logout');
     const callback = (data) => {
-      sessionStorage.removeItem('user')
+      sessionStorage.removeItem('user');
       this.setState(
         {
           loggedIn: false,
           user: null
         }
-        )
-      message.success(data.msg)
-    }
-    logout(callback)
+        );
+      message.success(data.msg);
+    };
+    logout(callback);
   }
 
   render () {
-    console.log('goodsID', this.state.goodsId)
-    if (OrderData.tmpId === null) { return null }
-    if (goodsData === null) { return null }
+    console.log('goodsID', this.state.goodsId);
+    if (OrderData.tmpId === null) { return (<Empty className="empty"/>); }
+    if (goodsData === null) { return (<Empty className="empty"/>); }
     return (
         <Row align="top" gutter={16}>
           <Header
@@ -93,6 +98,6 @@ export class DetailView extends React.Component {
           </Row>
           <BackTop />
         </Row>
-    )
+    );
   }
 }
