@@ -92,14 +92,14 @@ describe('Test homepage, login and register', function () {
     cy.get('input[placeholder="确认密码"]').type('test')
     cy.get('button[type="submit"]').click()
     // cy.url().should('include', '/login')
-    // 测试登陆
-    cy.get('input[placeholder="用户名"').type('test')
-    cy.get('input[placeholder="密码"]').type('test')
-    cy.get('button[type="submit"]').click()
-    cy.url().should('include', '/')
-    cy.get('div[class="ant-dropdown-trigger"]').should('contain', 'test')
-    // 登出
-    cy.request('POST', 'http://localhost:8080/sso/logout', {})
+    // // 测试登陆
+    // cy.get('input[placeholder="用户名"').type('test')
+    // cy.get('input[placeholder="密码"]').type('test')
+    // cy.get('button[type="submit"]').click()
+    // cy.url().should('include', '/')
+    // // cy.get('div[class="ant-dropdown-trigger"]').should('contain', 'test')
+    // // 登出
+    // cy.request('POST', 'http://localhost:8080/sso/logout', {})
     // 测试重复用户名
     cy.visit('/register')
     cy.get('input[placeholder="确认密码"]').clear()
