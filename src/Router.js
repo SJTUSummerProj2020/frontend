@@ -1,29 +1,30 @@
-import React from 'react'
-import { Router, Route, Switch } from 'react-router-dom'
-import { history } from './utils/history'
-import { CustomerHome } from './view/CustomerHome'
-import { DetailListView } from './view/DetailListView'
-import { PersonalInfoView } from './view/PersonalInfoView'
-import { OrderListView } from './view/OrderListView'
-import { DetailView } from './view/DetailView'
-import { LoginView } from './view/LoginView'
-import { DetailOrderView } from './view/DetailOrderView'
-import { SearchView } from './view/SearchView'
-import { UserListView } from './view/UserListView'
-import { AdminOrderListView } from './view/AdminOrderListView'
-import { RegisterView } from './view/RegisterView'
-import { AuctionView } from './view/AuctionView'
-import { AuctionListView } from './view/AuctionListView'
-import { AdminGoodsView } from './view/AdminGoodsView'
-import { OrderSearchView } from './view/OrderSearchView'
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+import { history } from './utils/history';
+import { CustomerHome } from './view/CustomerHome';
+import { DetailListView } from './view/DetailListView';
+import { PersonalInfoView } from './view/PersonalInfoView';
+import { OrderListView } from './view/OrderListView';
+import { DetailView } from './view/DetailView';
+import { LoginView } from './view/LoginView';
+import { DetailOrderView } from './view/DetailOrderView';
+import { SearchView } from './view/SearchView';
+import { UserListView } from './view/UserListView';
+import { AdminOrderListView } from './view/AdminOrderListView';
+import { RegisterView } from './view/RegisterView';
+import { AuctionView } from './view/AuctionView';
+import { AuctionListView } from './view/AuctionListView';
+import { AdminGoodsView } from './view/AdminGoodsView';
+import { OrderSearchView } from './view/OrderSearchView';
+import {EditInfoView} from './view/EditInfoView';
 
 class BasicRoute extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
     history.listen((location, action) => {
       // clear alert on location change
-      console.log(location, action)
-    })
+      console.log(location, action);
+    });
   }
 
   render () {
@@ -45,10 +46,11 @@ class BasicRoute extends React.Component {
           <Route exact path="/auctionlist" component={AuctionListView} />
           <Route exact path="/adminGoods" component={AdminGoodsView} />
           <Route exact path="/orderSearch" component={OrderSearchView} />
+          <Route exact path="/editInfo" component={EditInfoView}/>
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
-export default BasicRoute
+export default BasicRoute;
