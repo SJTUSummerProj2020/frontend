@@ -59,12 +59,12 @@ export const getRecommendGoods = (number, callback) => {
 // };
 //
 export const editUser = (data, callback) => {
-    const url = `http://localhost:8080/user/editUser`;
+    const url = header + `user/editUser`;
     postRequest(url, data, callback);
 };
 
 export const getUserById = (userId, callback) => {
-  const url = `http://localhost:8080/user/getUserById/` + userId;
+  const url = header + `user/getUserById/` + userId;
   const data = {};
   getRequest(url, data, callback);
 };
