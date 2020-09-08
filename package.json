@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sjtusummerproj2020.github.io/frontend",
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@jest/globals": "^26.1.0",
