@@ -1,6 +1,6 @@
-import { createBrowserHistory} from 'history';
+import createHistory from 'history/createHashHistory';
 
-export const history = createBrowserHistory();
+export const history = createHistory();
 
 // export const history = createMemoryHistory({
 //     initialEntries: ['/'], // The initial URLs in the history stack

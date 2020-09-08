@@ -1,10 +1,10 @@
-import React from 'react';
-import BasicRoute from "./Router";
+import React from 'react'
+import BasicRoute from './Router'
 
-function App() {
+function App () {
   return (
-      <BasicRoute/>
-  );
+    <BasicRoute />
+  )
 }
 
-export default App;
+export default App
