@@ -1,6 +1,6 @@
 import { postRequest, getRequest, deleteRequest, putRequest } from '../utils/ajax';
 
-const header = 'http://ec2-100-25-4-241.compute-1.amazonaws.com:8080/';
+const header = 'https://ec2-100-25-4-241.compute-1.amazonaws.com:8080/';
 export const getAllGoods = (data, callback) => {
   const url = header + 'goods/getAllGoods';
   getRequest(url, data, callback);
