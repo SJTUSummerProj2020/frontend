@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "homepage": "https://sjtusummerproj2020.github.io/frontend"
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
@@ -20,7 +21,9 @@
     "build": "react-scripts build",
     "test": "jest --colors --coverage",
     "eject": "react-scripts eject",
-    "format": "eslint \"**/*.js\" --fix && npx prettier \"**/*.{js,json,md}\" --write"
+    "format": "eslint \"**/*.js\" --fix && npx prettier \"**/*.{js,json,md}\" --write",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
